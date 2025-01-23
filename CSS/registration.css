@@ -125,7 +125,20 @@ button:disabled {
 button[disabled]:hover {
   background-color: gray;
 }
-
+.countbox {
+  display: none;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  bottom: 2px;
+  right: 0px;
+  background-color: #acacac;
+  border-radius: 50%;
+}
+.count {
+  color: white;
+  text-align: center;
+}
 /* 생긴인풋 */
 .c {
   font-size: large;

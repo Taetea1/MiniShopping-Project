@@ -64,14 +64,14 @@ body {
   position: relative;
 }
 .countbox {
-  display: none;
   position: absolute;
   width: 25px;
   height: 25px;
   bottom: 2px;
   right: 0px;
-  background-color: #acacac;
   border-radius: 50%;
+  display: none;
+  background-color: #acacac;
 }
 .count {
   color: white;
