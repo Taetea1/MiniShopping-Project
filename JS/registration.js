@@ -151,6 +151,7 @@ btn.addEventListener("click", () => {
       name: namee.value,
       price: Number(price.value).toLocaleString(),
       content: content.value,
+      heart: false,
     };
     data.push(userInfo1);
 
