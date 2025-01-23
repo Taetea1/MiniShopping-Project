@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- alert창 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 아이템들있는 메인페이지 -->
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="header-box">
+      <img src="../image/home.png" alt="home" class="home"
+        onclick="location.href='http://127.0.0.1:5500/page/main.html'" />
+
+      <div class="controlBtn">
+        <img src="../image/login.png" alt="loginIcon" title="로그인" class="login" onclick="readyalert()" />
+        <img src="../image/cart.png" alt="cartIcon" title="장바구니" class="cart"
+          onclick="location.href='http://127.0.0.1:5500/page/cart.html'" />
+      </div>
+    </div>
+  </header>
+
+  <div class="main-wrap">
+    <!-- 동적 테이블과 결과 박스가 추가될 영역 -->
+  </div>
+</body>
+<script src="../JS/main.js"></script>
+<script src="../JS/global.js"></script>
+
+</html>

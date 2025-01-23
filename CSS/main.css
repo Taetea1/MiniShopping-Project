@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fdf5e6;
+  color: #4b4b4b;
+}
+/* 상품 이미지 크기조절 */
+
+.imgbox {
+  max-width: 100px;
+}
+.imgs {
+  width: 100%;
+}
+/* 헤더 */
+.header {
+  width: 100%;
+  background-color: #deb887;
+  height: 70px;
+  margin-bottom: 20px;
+}
+/* 헤더 안 상자 */
+.header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.home,
+.login {
+  cursor: pointer;
+  width: 60px;
+}
+.cart {
+  cursor: pointer;
+  width: 55px;
+}
+.main-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fffaf0;
+}
