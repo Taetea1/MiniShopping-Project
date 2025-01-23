@@ -43,6 +43,7 @@ datas.innerHTML = `
     </table>`;
 const tbodys = document.querySelector(".tablebody");
 let data = [];
+
 //사용자 정보 가져오기
 const getUserInfo = () => {
   let userList = JSON.parse(localStorage.getItem("userInfo"));

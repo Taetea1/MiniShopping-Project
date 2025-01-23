@@ -11,7 +11,9 @@ body {
 /* 상품 이미지 크기조절 */
 
 .imgbox {
-  max-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .imgs {
   width: 100%;
@@ -37,6 +39,29 @@ body {
 .cart {
   cursor: pointer;
   width: 55px;
+}
+
+.controlBtn {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
+}
+.countwrap {
+  position: relative;
+}
+.countbox {
+  display: none;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  bottom: 2px;
+  right: 0px;
+  background-color: #acacac;
+  border-radius: 50%;
+}
+.count {
+  color: white;
+  text-align: center;
 }
 
 .main-wrap table {
