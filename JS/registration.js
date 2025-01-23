@@ -98,40 +98,10 @@ const checkName = () => {
 };
 const checkPrice = () => {
   checkBin(price, 2);
-  if (price.value.length === 0) {
-    price_value.textContent = "";
-    isprice = true;
-    btn.disabled = true; //비활성화
-    isbincheck[2] = 0;
-  } else if (price.value < 10 && price.value >= 0) {
-    price_value.textContent = "10원 이상 입력해주세요.";
-    isprice = true;
-    btn.disabled = true; //비활성화
-    isbincheck[2] = 0;
-  } else {
-    price_value.textContent = "";
-    isprice = false;
-    isbincheck[2] = 1;
-  }
   check();
 };
 const checkContent = () => {
   checkBin(content, 3);
-  if (content.value.length < 15 && content.value.length > 0) {
-    content_value.textContent = "상세내용은 15자리 이상 작성해주세요.";
-    iscontent = true;
-    isbincheck[3] = 0;
-    btn.disabled = true; //비활성화
-  } else if (content.value.length === 0) {
-    content_value.textContent = "";
-    iscontent = true;
-    btn.disabled = true; //비활성화
-    isbincheck[3] = 0;
-  } else if (content.value.length >= 15) {
-    content_value.textContent = "";
-    iscontent = false;
-    isbincheck[3] = 1;
-  }
   check();
 };
 
@@ -298,13 +268,8 @@ const changePrice = (id) => {
   const ageEle = document.querySelector(`.changecar2${id}`);
   let b2 = document.getElementById(`${id}`);
   let ageinput = document.querySelector(`.c2${id}`);
-  console.log("priceinput", ageinput.value);
   if (ageinput.value.length === 0) {
     ageEle.textContent = "";
-    ischangeage = true;
-    b2.disabled = true; //비활성화
-  } else if (ageinput.value < 10 && ageinput.value >= 0) {
-    ageEle.textContent = "10원 이상 입력해주세요.";
     ischangeage = true;
     b2.disabled = true; //비활성화
   } else {
@@ -320,15 +285,11 @@ const checkChangeContent = (id) => {
   let carinput = document.querySelector(`.c${id}`);
   const carEle = document.querySelector(`.changecar${id}`);
   console.log("carinput", carinput.value);
-  if (carinput.value.length < 15 && carinput.value.length > 0) {
-    carEle.textContent = "상세내용은 15자리 이상 작성해주세요.";
-    ischangecar = true;
-    b1.disabled = true; //비활성화
-  } else if (carinput.value.length === 0) {
+  if (carinput.value.length === 0) {
     carEle.textContent = "";
     ischangecar = true;
     b1.disabled = true; //비활성화
-  } else if (carinput.value.length >= 15) {
+  } else {
     carEle.textContent = "";
     ischangecar = false;
   }
