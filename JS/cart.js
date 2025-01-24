@@ -3,7 +3,7 @@ let cartData = []; //장바구니 데이터
 
 //장바구니 정보 가져오기
 const getcartInfo = () => {
-  let cartList = JSON.parse(localStorage.getItem("cartInfo"));
+  let cartList = JSON.parse(localStorage.getItem("cartInfo")) || [];
   if (cartList.length === 0) {
     datas.innerHTML += `
     <div class="tungbox"><img class="tungimg" src="../image/tung.png" alt="빈이미지" /></div>
@@ -23,11 +23,18 @@ const getcartInfo = () => {
       </div>
     `;
     });
+    datas.innerHTML += `<button class="alldeletebtn" onclick="allDelete()">장바구니 비우기</button>`;
     return cartData;
   }
 };
 
 const cartInfo = getcartInfo();
+
+// 전체삭제
+const allDelete = () => {
+  localStorage.removeItem("cartInfo");
+  window.location.reload();
+};
 
 // 삭제
 const removeData = (id) => {
@@ -47,7 +54,7 @@ const removeData = (id) => {
 const cartCount = () => {
   let count = document.querySelector(".count");
   let countbox = document.querySelector(".countbox");
-  let cartList = JSON.parse(localStorage.getItem("cartInfo"));
+  let cartList = JSON.parse(localStorage.getItem("cartInfo")) || [];
   if (cartList.length === 0) {
     countbox.style.display = "none";
   } else {

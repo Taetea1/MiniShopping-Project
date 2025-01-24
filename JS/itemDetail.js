@@ -80,12 +80,12 @@ const checkAlert = () => {
     cancelButtonText: "아니요",
   }).then((result) => {
     if (result.isConfirmed) {
+      getCart();
       Swal.fire({
         title: "이미 담긴 상품입니다!",
         text: "장바구니에서 확인해주세요",
         icon: "success",
       });
-      getCart();
     }
   });
 };
@@ -94,7 +94,7 @@ const checkAlert = () => {
 const cartCount = () => {
   let count = document.querySelector(".count");
   let countbox = document.querySelector(".countbox");
-  let cartList = JSON.parse(localStorage.getItem("cartInfo"));
+  let cartList = JSON.parse(localStorage.getItem("cartInfo")) || [];
   if (cartList.length === 0) {
     countbox.style.display = "none";
   } else {

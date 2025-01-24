@@ -83,3 +83,18 @@ body {
 .tungimg {
   width: 50%;
 }
+.alldeletebtn {
+  display: block;
+  margin: 50px auto;
+  padding: 10px 20px;
+  font-size: large;
+  background-color: #deb887;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.alldeletebtn:hover {
+  background-color: #bc8f8f;
+}

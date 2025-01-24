@@ -48,7 +48,7 @@ let data = [];
 const cartCount = () => {
   let count = document.querySelector(".count");
   let countbox = document.querySelector(".countbox");
-  let cartList = JSON.parse(localStorage.getItem("cartInfo"));
+  let cartList = JSON.parse(localStorage.getItem("cartInfo")) || [];
   if (cartList.length === 0) {
     countbox.style.display = "none";
   } else {
