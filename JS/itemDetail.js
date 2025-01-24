@@ -62,7 +62,18 @@ const getCart = () => {
         cartData.push(cartInfo);
 
         localStorage.setItem("cartInfo", JSON.stringify(cartData));
-        window.location.reload();
+        Swal.fire({
+          title: "장바구니에 담겼습니다!",
+          text: "장바구니에서 확인해주세요",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
+      } else {
+        alreadyCart();
       }
     }
   });
@@ -81,12 +92,13 @@ const checkAlert = () => {
   }).then((result) => {
     if (result.isConfirmed) {
       getCart();
-      Swal.fire({
-        title: "이미 담긴 상품입니다!",
-        text: "장바구니에서 확인해주세요",
-        icon: "success",
-      });
     }
+  });
+};
+const alreadyCart = () => {
+  Swal.fire({
+    title: "이미 담긴 상품입니다!",
+    text: "장바구니에서 확인해주세요",
   });
 };
 

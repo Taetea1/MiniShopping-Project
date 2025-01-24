@@ -36,7 +36,7 @@ body {
 .header {
   width: 100%;
   background-color: #deb887;
-  height: 70px;
+  height: 150px;
   margin-bottom: 20px;
 }
 /* 헤더 안 상자 */
@@ -49,6 +49,9 @@ body {
 .login {
   cursor: pointer;
   width: 60px;
+}
+.logo {
+  width: 150px;
 }
 .cart {
   cursor: pointer;

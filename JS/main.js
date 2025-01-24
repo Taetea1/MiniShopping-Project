@@ -17,7 +17,7 @@ const cartCount = () => {
 cartCount();
 //정보 가져오기
 const getUserInfo = () => {
-  let userList = JSON.parse(localStorage.getItem("userInfo"));
+  let userList = JSON.parse(localStorage.getItem("userInfo")) || [];
 
   if (userList.length === 0) {
     datas.innerHTML += `

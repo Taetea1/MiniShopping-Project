@@ -19,24 +19,34 @@ const datas = document.querySelector(".main-wrap");
 const input = document.querySelector(".input-wrap");
 // 이미지
 const img = [
-  "../image/냉장고.png",
-  "../image/노트북.png",
-  "../image/밥솥.png",
-  "../image/세탁기.png",
-  "../image/소파.png",
-  "../image/의자.png",
-  "../image/책상.png",
-  "../image/가방.png",
-  "../image/도시락통.png",
-  "../image/머그컵.png",
-  "../image/버티컬마우스.png",
-  "../image/보온병.png",
-  "../image/빔프로젝터.png",
-  "../image/서랍장.png",
-  "../image/신발.png",
-  "../image/침대.png",
-  "../image/카메라.png",
-  "../image/필통.png",
+  "../image/글라스타드.png",
+  "../image/람네피엘.png",
+  "../image/로네스펠라레.png",
+  "../image/룽나레.png",
+  "../image/리사토르프.png",
+  "../image/베벨스타드.png",
+  "../image/베이카.png",
+  "../image/송에산드.png",
+  "../image/슬라툼.png",
+  "../image/예스탈타.png",
+  "../image/우토케르.png",
+  "../image/이코르네스.png",
+  "../image/조명1.png",
+  "../image/조명2.png",
+  "../image/조명3.png",
+  "../image/조명4.png",
+  "../image/조명5.png",
+  "../image/책상1.png",
+  "../image/책상2.png",
+  "../image/책상3.png",
+  "../image/책상4.png",
+  "../image/책상5.png",
+  "../image/책상6.png",
+  "../image/쿠기스.png",
+  "../image/쿠라.png",
+  "../image/크나페르.png",
+  "../image/타르바.png",
+  "../image/피스크보.png",
 ];
 datas.innerHTML = `
     <table>
@@ -211,7 +221,6 @@ const changeData = (id) => {
   const inputtest = document.querySelector(`.test${id}`);
   let btnsss = document.getElementById(`${id}`);
   if (btnsss.innerText === "수정") {
-    console.log(btnsss);
     btnsss.innerText = "수정완료";
     inputtest3.innerHTML = `
     <input class="c c3${id}" oninput=checkChangename(${id}) value="${inputtest3.innerText}" />`;
@@ -224,14 +233,12 @@ const changeData = (id) => {
     inputtest.innerHTML = `
     <input class="c c${id}" oninput=checkChangeContent(${id}) value="${inputtest.innerText}"/>
     <div class="changecar changecar${id}"></div>`;
-    console.log("가격나와라", inputtest2.innerText);
   } else if (
     btnsss.innerText === "수정완료" &&
     ischangecar === false &&
     ischangeage === false &&
     ischangename === false
   ) {
-    console.log(btnsss);
     btnsss.innerText = "수정";
 
     //직접변경
