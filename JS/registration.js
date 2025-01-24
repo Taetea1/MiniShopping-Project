@@ -26,6 +26,17 @@ const img = [
   "../image/소파.png",
   "../image/의자.png",
   "../image/책상.png",
+  "../image/가방.png",
+  "../image/도시락통.png",
+  "../image/머그컵.png",
+  "../image/버티컬마우스.png",
+  "../image/보온병.png",
+  "../image/빔프로젝터.png",
+  "../image/서랍장.png",
+  "../image/신발.png",
+  "../image/침대.png",
+  "../image/카메라.png",
+  "../image/필통.png",
 ];
 datas.innerHTML = `
     <table>
