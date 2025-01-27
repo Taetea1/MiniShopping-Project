@@ -15,6 +15,7 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #fffaf0;
+  margin-top: 150px;
 }
 .flexbox {
   display: flex;
@@ -54,23 +55,43 @@ body {
 .header {
   width: 100%;
   background-color: #deb887;
-  height: 100px;
+  height: 120px;
   margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 /* 헤더 안 상자 */
 .header-box {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  height: 100%;
+}
+
+.iconbox {
+  height: 100%;
+  display: flex;
   align-items: center;
 }
-.home,
+.home {
+  cursor: pointer;
+  padding: 5px;
+  height: 100%;
+}
 .login {
   cursor: pointer;
-  width: 60px;
+  width: 100px;
+  padding: 15px;
+  height: 100%;
 }
 .cart {
   cursor: pointer;
-  width: 55px;
+  width: 100px;
+  padding: 15px;
+  height: 100%;
 }
 
 .controlBtn {
@@ -82,14 +103,14 @@ body {
   position: relative;
 }
 .countbox {
-  display: none;
   position: absolute;
   width: 25px;
   height: 25px;
-  bottom: 2px;
-  right: 0px;
+  bottom: 18px;
+  right: 10px;
   border-radius: 50%;
-  background-color: #acacac;
+  display: none;
+  background-color: #8f6228;
 }
 .count {
   color: white;

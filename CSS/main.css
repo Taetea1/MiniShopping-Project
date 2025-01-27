@@ -8,6 +8,60 @@ body {
   background-color: #fdf5e6;
   color: #4b4b4b;
 }
+/* 시작 */
+.menus {
+  display: flex;
+  justify-content: center;
+}
+.menus div {
+  font-size: 17pt;
+  font-weight: 400;
+  padding: 15px 25px;
+
+  position: relative;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+li {
+  list-style-type: none;
+}
+li div {
+  cursor: pointer;
+  margin: 0 20px;
+}
+.navbar div {
+  padding: 5px 0;
+}
+
+.navbar div:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding: 5px 0;
+  max-width: 0;
+  border-bottom: 2px solid #c8a755;
+  color: #c8a755;
+  content: attr(data-hover);
+  -webkit-transition: max-width 0.5s;
+  -moz-transition: max-width 0.5s;
+  transition: max-width 0.5s;
+}
+
+.navbar div:hover:before,
+.navbar div:focus:before {
+  max-width: 100%;
+}
+/* 활성화된 메뉴 */
+.checked {
+  border-bottom: 2px solid #c8a755;
+  color: #c8a755;
+  content: attr(data-hover);
+}
+
+/* 끝 */
 .tungbox {
   width: 100%;
   display: flex;
@@ -19,43 +73,75 @@ body {
 .main-wrap {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 20px;
+  margin-top: 150px;
+}
+.menu {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
 }
 /* 상품 이미지 크기조절 */
 .imgbox {
-  /* width: 100%; */
   border-radius: 8px;
+  width: 200px;
   margin: 0 auto;
 }
 .imgs {
-  width: 100%;
-  padding: 45px;
+  width: 200px;
+  height: 200px;
+  padding: 40px;
 }
 
 /* 헤더 */
 .header {
+  z-index: 100;
   width: 100%;
   background-color: #deb887;
-  height: 150px;
+  height: 120px;
   margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 /* 헤더 안 상자 */
 .header-box {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  height: 100%;
+}
+.navbox {
+  display: flex;
+}
+.navtext {
+  color: #eee;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.iconbox {
+  height: 100%;
+  display: flex;
   align-items: center;
 }
-.home,
+.home {
+  cursor: pointer;
+  padding: 5px;
+  height: 100%;
+}
 .login {
   cursor: pointer;
-  width: 60px;
-}
-.logo {
-  width: 150px;
+  width: 100px;
+  padding: 15px;
+  height: 100%;
 }
 .cart {
   cursor: pointer;
-  width: 55px;
+  width: 100px;
+  padding: 15px;
+  height: 100%;
 }
 
 .controlBtn {
@@ -70,24 +156,17 @@ body {
   position: absolute;
   width: 25px;
   height: 25px;
-  bottom: 2px;
-  right: 0px;
+  bottom: 18px;
+  right: 10px;
   border-radius: 50%;
   display: none;
-  background-color: #acacac;
+  background-color: #8f6228;
 }
 .count {
   color: white;
   text-align: center;
 }
-.menu {
-  /* width: 850px; */
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-content: space-evenly;
-  margin: 0px auto;
-  gap: 10px;
-}
+
 .box {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -112,13 +191,50 @@ body {
   margin: 10px;
   font-weight: bolder;
 }
+@media screen and (max-width: 1200px) {
+  .menu {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 @media screen and (max-width: 860px) {
   .menu {
     grid-template-columns: repeat(3, 1fr);
   }
+  .menus div {
+    font-size: 12pt;
+    padding: 0px;
+  }
+  .navbar div {
+    padding: 5px 0;
+  }
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 650px) {
   .menu {
     grid-template-columns: repeat(2, 1fr);
   }
+  .menus div {
+    font-size: 10pt;
+  }
+  .navbar div {
+    padding: 5px 0;
+  }
+}
+
+#top-btn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999;
+  background-color: white;
+  border: 2px solid #dbdbdb;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #333333;
 }

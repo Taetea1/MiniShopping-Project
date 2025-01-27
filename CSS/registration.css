@@ -9,36 +9,53 @@ body {
   color: #4b4b4b;
 }
 /* 상품 이미지 크기조절 */
-
 .imgbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
 }
 .imgs {
-  width: 100%;
+  max-width: 100%;
 }
 /* 헤더 */
 .header {
   width: 100%;
   background-color: #deb887;
-  height: 100px;
+  height: 120px;
   margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 /* 헤더 안 상자 */
 .header-box {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  height: 100%;
+}
+
+.iconbox {
+  height: 100%;
+  display: flex;
   align-items: center;
 }
-.home,
+.home {
+  cursor: pointer;
+  padding: 5px;
+  height: 100%;
+}
 .login {
   cursor: pointer;
-  width: 60px;
+  width: 100px;
+  padding: 15px;
+  height: 100%;
 }
 .cart {
   cursor: pointer;
-  width: 55px;
+  width: 100px;
+  padding: 15px;
+  height: 100%;
 }
 
 .controlBtn {
@@ -50,27 +67,53 @@ body {
   position: relative;
 }
 .countbox {
-  display: none;
   position: absolute;
   width: 25px;
   height: 25px;
-  bottom: 2px;
-  right: 0px;
-  background-color: #acacac;
+  bottom: 18px;
+  right: 10px;
   border-radius: 50%;
+  display: none;
+  background-color: #8f6228;
 }
 .count {
   color: white;
   text-align: center;
 }
 
+.selectbox {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+select {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  padding: 0.4em 1.1em 0.2em 0.2em;
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+}
+select:focus {
+  outline: 2px solid #ff8c00;
+}
+option {
+  padding: 4px;
+  font-size: 14px;
+  color: #fff;
+  background: #272822;
+}
+
 .main-wrap table {
   table-layout: fixed;
   word-wrap: break-word;
 }
+
 .input-wrap,
 .main-wrap {
-  max-width: 1000px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -80,6 +123,7 @@ body {
 
 .input-wrap {
   margin-bottom: 20px;
+  margin-top: 150px;
 }
 
 .input-wrap input {
@@ -125,27 +169,13 @@ button:disabled {
 button[disabled]:hover {
   background-color: gray;
 }
-.countbox {
-  display: none;
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  bottom: 2px;
-  right: 0px;
-  background-color: #acacac;
-  border-radius: 50%;
-}
-.count {
-  color: white;
-  text-align: center;
-}
+
 /* 생긴인풋 */
 .c {
   font-size: large;
   width: 100%;
   outline: none;
   border: none;
-  /* border-bottom: 3px solid #deb887; */
   border-radius: 6px;
   box-shadow: 1px 2px 2px 2px rgb(240, 240, 240);
 }

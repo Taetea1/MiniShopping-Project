@@ -158,6 +158,12 @@ const checkBin = (type, index) => {
   }
 };
 
+// 타입 드롭다운버튼
+let types = "";
+function getType() {
+  types = document.getElementById("types").value;
+}
+
 btn.addEventListener("click", () => {
   if (
     isid === false &&
@@ -165,6 +171,7 @@ btn.addEventListener("click", () => {
     isprice === false &&
     iscontent === false
   ) {
+    console.log(types);
     // 데이터 넣기
     let userInfo1 = {
       id: idd.value,
@@ -173,6 +180,7 @@ btn.addEventListener("click", () => {
       price: Number(price.value).toLocaleString(),
       content: content.value,
       heart: false,
+      type: types,
     };
     data.push(userInfo1);
 
@@ -285,7 +293,6 @@ const changedisable = (id) => {
 const checkChangename = (id) => {
   let nameinput = document.querySelector(`.c3${id}`);
   let b3 = document.getElementById(`${id}`);
-  console.log("nameinput", nameinput.value);
 
   if (nameinput.value.length <= 0) {
     ischangename = true;
@@ -317,7 +324,6 @@ const checkChangeContent = (id) => {
   let b1 = document.getElementById(`${id}`);
   let carinput = document.querySelector(`.c${id}`);
   const carEle = document.querySelector(`.changecar${id}`);
-  console.log("carinput", carinput.value);
   if (carinput.value.length === 0) {
     carEle.textContent = "";
     ischangecar = true;
@@ -338,7 +344,6 @@ const removeData = (id) => {
   let userLists = JSON.parse(localStorage.getItem("userInfo"));
   data = [];
   data.push(...userLists);
-  console.log(removebtn);
   if (!removebtn) {
     tbodys.innerHTML = "";
 

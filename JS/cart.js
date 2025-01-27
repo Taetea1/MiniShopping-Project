@@ -17,7 +17,7 @@ const getcartInfo = () => {
       <div id=id${x.id} class="flexbox">
         <div class="imgbox"><img class="itemimg" src="${x.img}" alt="상품이미지" /></div>
         <div>${x.name}</div>        
-        <div>${x.price}</div>
+        <div>${x.price}원</div>
         <div>${x.content}</div>
         <div class="imgbox"><img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(${x.id})" /></div>
       </div>
