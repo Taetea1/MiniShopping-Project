@@ -22,6 +22,36 @@ const getcartInfo = () => {
         <div class="imgbox"><img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(${x.id})" /></div>
       </div>
     `;
+      datas.innerHTML += `
+      <div class="flexwrap">
+      <div id=id${x.id} class="flexbox2">
+        <div class="imgbox"><img class="itemimg" src="${x.img}" alt="상품이미지" /></div>
+        <div>
+          <div class="titlebox">
+            <div>${x.name}</div>  
+            <div>${x.content}</div>  
+          </div>
+              
+          <div>${x.price}원</div>
+          <div>
+            <button>-</button>
+            <input class="amount" type="text" name="amounts" value=${x.amount} size="3">
+            <button>+</button>
+          </div>
+        </div>
+        
+        <div class="imgbox2"><img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(${x.id})" /></div>
+      </div>
+
+      <div class="pricebox">
+        <div>주문 예상 금액</div>
+        <div>총 상품 가격</div>
+        <hr>
+        <div>1000원</div>
+        <button class="alldeletebtn">구매하기</button>
+      </div>
+      </div>
+    `;
     });
     datas.innerHTML += `<button class="alldeletebtn" onclick="allDelete()">장바구니 비우기</button>`;
     return cartData;

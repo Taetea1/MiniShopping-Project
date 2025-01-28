@@ -37,6 +37,8 @@ body {
 }
 .text {
   .title {
+    display: flex;
+    align-items: center;
     font-size: 1.2em;
     font-weight: bolder;
   }
@@ -115,4 +117,40 @@ body {
 .count {
   color: white;
   text-align: center;
+}
+
+/* 예비 디자인 */
+.text2 {
+  display: flex;
+  .title2 {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bolder;
+  }
+}
+.content {
+  margin-bottom: 20px;
+}
+.price {
+  margin-bottom: 10px;
+}
+.imgbox2 {
+  width: 70%;
+}
+.img2 {
+  width: 100%;
+  padding: 50px;
+}
+.btn2 {
+  padding: 10px 20px;
+  background-color: #deb887;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn2:hover {
+  background-color: #bc8f8f;
 }
