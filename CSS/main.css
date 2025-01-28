@@ -73,7 +73,7 @@ li div {
 .main-wrap {
   max-width: 1280px;
   margin: 0 auto;
-  margin-top: 150px;
+  margin-top: 90px;
 }
 .menu {
   display: grid;
@@ -223,18 +223,11 @@ li div {
 #top-btn {
   display: none;
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  bottom: 50px;
+  right: 50px;
   z-index: 999;
-  background-color: white;
-  border: 2px solid #dbdbdb;
-  outline: none;
   cursor: pointer;
-  padding: 10px;
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #333333;
+  width: 70px;
+  height: 70px;
 }

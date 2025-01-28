@@ -18,35 +18,41 @@ const btn = document.querySelector(".btn");
 const datas = document.querySelector(".main-wrap");
 const input = document.querySelector(".input-wrap");
 // 이미지
-const img = [
+let img = [];
+const bedimg = [
   "../image/글라스타드.png",
   "../image/람네피엘.png",
-  "../image/로네스펠라레.png",
-  "../image/룽나레.png",
-  "../image/리사토르프.png",
   "../image/베벨스타드.png",
-  "../image/베이카.png",
   "../image/송에산드.png",
   "../image/슬라툼.png",
-  "../image/예스탈타.png",
   "../image/우토케르.png",
-  "../image/이코르네스.png",
-  "../image/조명1.png",
-  "../image/조명2.png",
-  "../image/조명3.png",
-  "../image/조명4.png",
-  "../image/조명5.png",
+  "../image/쿠라.png",
+  "../image/타르바.png",
+];
+const deskimg = [
   "../image/책상1.png",
   "../image/책상2.png",
   "../image/책상3.png",
   "../image/책상4.png",
   "../image/책상5.png",
   "../image/책상6.png",
+];
+const lightingimg = [
+  "../image/조명1.png",
+  "../image/조명2.png",
+  "../image/조명3.png",
+  "../image/조명4.png",
+  "../image/조명5.png",
+];
+const ornamentimg = [
+  "../image/룽나레.png",
+  "../image/리사토르프.png",
+  "../image/베이카.png",
   "../image/쿠기스.png",
-  "../image/쿠라.png",
   "../image/크나페르.png",
-  "../image/타르바.png",
   "../image/피스크보.png",
+  "../image/예스탈타.png",
+  "../image/이코르네스.png",
 ];
 datas.innerHTML = `
     <table>
@@ -171,7 +177,17 @@ btn.addEventListener("click", () => {
     isprice === false &&
     iscontent === false
   ) {
-    console.log(types);
+    img = [];
+    if (types === "bed") {
+      img.push(...bedimg);
+    } else if (types === "lighting") {
+      img.push(...lightingimg);
+    } else if (types === "desk") {
+      img.push(...deskimg);
+    } else if (types === "ornament") {
+      img.push(...ornamentimg);
+    }
+    console.log(img);
     // 데이터 넣기
     let userInfo1 = {
       id: idd.value,
