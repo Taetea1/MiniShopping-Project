@@ -237,6 +237,9 @@ body {
 .minus:hover {
   background-color: #bc8f8f;
 }
+.minus:disabled {
+  background-color: gray;
+}
 
 @media (max-width: 768px) {
   .flexbox2-2 {

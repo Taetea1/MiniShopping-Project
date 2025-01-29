@@ -1,6 +1,7 @@
 const datas = document.querySelector(".itemcart");
 const mainwrap = document.querySelector(".mainwrap");
 const pricewrap = document.querySelector(".pricewrap");
+
 let cartData = []; //장바구니 데이터
 
 //장바구니 정보 가져오기
@@ -37,10 +38,8 @@ const getcartInfo = () => {
               <div>${x.content}</div>
             </div>
             <div>${x.price}원</div>
-            <div class="amountbox">
-              <button class="minus minus${x.id}" onclick="subCount(${x.id})">-</button>
-              <input class="amount amount${x.id}" type="text" name="amounts" value=${x.amount} size="3">
-              <button class="plus" onclick="addCount(${x.id})">+</button>
+            <div class="amountbox amountbox${x.id}">
+              
             </div>
           </div>
         </div>
@@ -49,6 +48,17 @@ const getcartInfo = () => {
         </div>
       </div>
     `;
+      const amountbox = document.querySelector(`.amountbox${x.id}`);
+      if (x.amount <= 1) {
+        amountbox.innerHTML = `<button class="minus minus${x.id}" onclick="subCount(${x.id})" disabled>-</button>
+        <input class="amount amount${x.id}" type="text" name="amounts" value=${x.amount} size="3">
+        <button class="plus" onclick="addCount(${x.id})">+</button>`;
+      } else {
+        amountbox.innerHTML = `<button class="minus minus${x.id}" onclick="subCount(${x.id})">-</button>
+        <input class="amount amount${x.id}" type="text" name="amounts" value=${x.amount} size="3">
+        <button class="plus" onclick="addCount(${x.id})">+</button>`;
+      }
+
       cellprice += x.amount * x.price.split(",").join("");
     });
     pricewrap.innerHTML = `
@@ -114,16 +124,11 @@ const addCount = (id) => {
 };
 // 빼기 함수
 const subCount = (id) => {
-  const subbtn = document.querySelector(`.minus${id}`);
-  let num = document.querySelector(`.amount${id}`).value;
-  if (num <= 1) {
-    subbtn.disabled = true;
-  } else {
-    subbtn.disabled = false;
-  }
+  let num = --document.querySelector(`.amount${id}`).value;
+
   let cartamount = JSON.parse(localStorage.getItem("cartInfo")) || [];
   let index = cartamount.findIndex((obj) => obj.id === String(id));
-  cartamount[index].amount = --num;
+  cartamount[index].amount = num;
   localStorage.setItem("cartInfo", JSON.stringify(cartamount));
   cartData = [];
   cartData.push(...cartamount);
