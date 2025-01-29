@@ -135,11 +135,13 @@ body {
   margin-bottom: 10px;
 }
 .imgbox2 {
-  width: 70%;
+  width: 50%;
 }
 .img2 {
   width: 100%;
   padding: 50px;
+  height: auto;
+  max-width: 500px;
 }
 .btn2 {
   padding: 10px 20px;
@@ -153,4 +155,8 @@ body {
 
 .btn2:hover {
   background-color: #bc8f8f;
+}
+.flexbox2 {
+  margin: auto;
+  width: 50%;
 }

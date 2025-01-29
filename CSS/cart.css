@@ -11,6 +11,7 @@ body {
 
 /* 헤더 */
 .header {
+  z-index: 999;
   width: 100%;
   background-color: #deb887;
   height: 120px;
@@ -93,7 +94,7 @@ body {
   cursor: pointer;
 }
 .itemimg {
-  width: 200px;
+  max-width: 200px;
 }
 .tungbox {
   width: 100%;
@@ -132,42 +133,137 @@ body {
 /* 예시 */
 .titlebox {
   margin-bottom: 10px;
+  word-wrap: break-word;
 }
 .flexwrap {
   max-width: 1280px;
   display: flex;
   margin: 0 auto;
 }
+.itemcart {
+  width: 60%;
+}
 .flexbox2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fffaf0;
-  width: 60%;
+  width: 100%;
   margin: 10px 0;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-.pricebox {
+.flexbox2-2 {
+  display: flex;
+  width: 90%;
+}
+.pricewrap {
   width: 40%;
+  height: auto;
+}
+.pricebox {
+  position: sticky;
+  top: 130px;
   margin: 10px 0 10px 10px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #fffaf0;
 }
+.itemimg {
+  width: 100%;
+  height: auto;
+  max-width: 700px;
+}
+.imgbox {
+  width: 40%;
+  margin: auto;
+}
+.textbox {
+  width: 60%;
+  margin: auto 15px;
+  max-width: 200px;
+}
 .imgbox2 {
-  height: 100%;
-  display: flex;
-  align-items: start;
+  margin: auto;
   img {
-    width: 35px;
+    max-width: 35px;
     padding: 0;
   }
+}
+.amountbox {
+  white-space: nowrap;
 }
 .amount {
   text-align: center;
   border: none;
   outline: none;
+}
+.name {
+  font-weight: bolder;
+  font-size: larger;
+}
+.totalprice {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.buybtn {
+  display: block;
+  margin: 20px auto 0 auto;
+  padding: 10px 20px;
+  font-size: medium;
+  background-color: #deb887;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.buybtn:hover {
+  background-color: #bc8f8f;
+}
+.minus,
+.plus {
+  border: none;
+  cursor: pointer;
+  background-color: #deb887;
+  color: #fff;
+  border-radius: 2px;
+  font-size: medium;
+}
+.plus:hover,
+.minus:hover {
+  background-color: #bc8f8f;
+}
+
+@media (max-width: 768px) {
+  .flexbox2-2 {
+    display: block;
+    width: 100%;
+  }
+  .flexbox2 {
+    display: block;
+    width: 100%;
+  }
+  .imgbox2 {
+    display: flex;
+    justify-content: end;
+    img {
+      max-width: 30px;
+      margin: 10px 0 0 0;
+    }
+  }
+  .textbox {
+    width: 100%;
+    margin: 0;
+    max-width: fit-content;
+  }
+  .imgbox {
+    width: 100%;
+  }
+  .titlebox {
+    word-wrap: normal;
+  }
 }

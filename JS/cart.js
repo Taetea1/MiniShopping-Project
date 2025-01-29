@@ -1,59 +1,66 @@
-const datas = document.querySelector(".mainwrap");
+const datas = document.querySelector(".itemcart");
+const mainwrap = document.querySelector(".mainwrap");
+const pricewrap = document.querySelector(".pricewrap");
 let cartData = []; //장바구니 데이터
 
 //장바구니 정보 가져오기
 const getcartInfo = () => {
   let cartList = JSON.parse(localStorage.getItem("cartInfo")) || [];
   if (cartList.length === 0) {
-    datas.innerHTML += `
+    mainwrap.innerHTML += `
     <div class="tungbox"><img class="tungimg" src="../image/tung.png" alt="빈이미지" /></div>
   `;
     return [];
   } else {
+    let cellprice = 0;
     // 배열을 빼고 넣어주기
     cartData.push(...cartList);
     cartData.map((x, i) => {
+      //   datas.innerHTML += `
+      //   <div id=id${x.id} class="flexbox">
+      //     <div class="imgbox"><img class="itemimg" src="${x.img}" alt="상품이미지" /></div>
+      //     <div>${x.name}</div>
+      //     <div>${x.price}원</div>
+      //     <div>${x.content}</div>
+      //     <div class="imgbox"><img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(${x.id})" /></div>
+      //   </div>
+      // `;
       datas.innerHTML += `
-      <div id=id${x.id} class="flexbox">
-        <div class="imgbox"><img class="itemimg" src="${x.img}" alt="상품이미지" /></div>
-        <div>${x.name}</div>        
-        <div>${x.price}원</div>
-        <div>${x.content}</div>
-        <div class="imgbox"><img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(${x.id})" /></div>
-      </div>
-    `;
-      datas.innerHTML += `
-      <div class="flexwrap">
       <div id=id${x.id} class="flexbox2">
-        <div class="imgbox"><img class="itemimg" src="${x.img}" alt="상품이미지" /></div>
-        <div>
-          <div class="titlebox">
-            <div>${x.name}</div>  
-            <div>${x.content}</div>  
+        <div class="flexbox2-2">
+          <div class="imgbox">
+            <img class="itemimg" src="${x.img}" alt="상품이미지" />
           </div>
-              
-          <div>${x.price}원</div>
-          <div>
-            <button>-</button>
-            <input class="amount" type="text" name="amounts" value=${x.amount} size="3">
-            <button>+</button>
+          <div class="textbox">
+            <div class="titlebox">
+              <div class="name">${x.name}</div>
+              <div>${x.content}</div>
+            </div>
+            <div>${x.price}원</div>
+            <div class="amountbox">
+              <button class="minus minus${x.id}" onclick="subCount(${x.id})">-</button>
+              <input class="amount amount${x.id}" type="text" name="amounts" value=${x.amount} size="3">
+              <button class="plus" onclick="addCount(${x.id})">+</button>
+            </div>
           </div>
         </div>
-        
-        <div class="imgbox2"><img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(${x.id})" /></div>
-      </div>
-
-      <div class="pricebox">
-        <div>주문 예상 금액</div>
-        <div>총 상품 가격</div>
-        <hr>
-        <div>1000원</div>
-        <button class="alldeletebtn">구매하기</button>
-      </div>
+        <div class="imgbox2">
+          <img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(${x.id})" />
+        </div>
       </div>
     `;
+      cellprice += x.amount * x.price.split(",").join("");
     });
-    datas.innerHTML += `<button class="alldeletebtn" onclick="allDelete()">장바구니 비우기</button>`;
+    pricewrap.innerHTML = `
+      <div class="pricebox">
+        <div class="name">주문 예상 금액</div>
+        <div class="totalprice">
+          <div>총 상품 가격</div>
+          <div>${cellprice.toLocaleString()}원</div>
+        </div>
+        <button class="buybtn" onclick="checkAlert2()">구매하기</button>
+      </div>`;
+    mainwrap.innerHTML += `<button class="alldeletebtn" onclick="allDelete()">장바구니 비우기</button>`;
     return cartData;
   }
 };
@@ -74,7 +81,7 @@ const removeData = (id) => {
   let cartLists = JSON.parse(localStorage.getItem("cartInfo"));
   cartData = [];
   cartData.push(...cartLists);
-  let div = document.querySelector(`.mainwrap > div[id=id${id}]`);
+  let div = document.querySelector(`.itemcart > div[id=id${id}]`);
   div.remove();
 
   window.location.reload();
@@ -93,3 +100,32 @@ const cartCount = () => {
   }
 };
 cartCount();
+
+// 더하기 함수
+const addCount = (id) => {
+  let num = ++document.querySelector(`.amount${id}`).value;
+  let cartamount = JSON.parse(localStorage.getItem("cartInfo")) || [];
+  let index = cartamount.findIndex((obj) => obj.id === String(id));
+  cartamount[index].amount = num;
+  localStorage.setItem("cartInfo", JSON.stringify(cartamount));
+  cartData = [];
+  cartData.push(...cartamount);
+  window.location.reload();
+};
+// 빼기 함수
+const subCount = (id) => {
+  const subbtn = document.querySelector(`.minus${id}`);
+  let num = document.querySelector(`.amount${id}`).value;
+  if (num <= 1) {
+    subbtn.disabled = true;
+  } else {
+    subbtn.disabled = false;
+  }
+  let cartamount = JSON.parse(localStorage.getItem("cartInfo")) || [];
+  let index = cartamount.findIndex((obj) => obj.id === String(id));
+  cartamount[index].amount = --num;
+  localStorage.setItem("cartInfo", JSON.stringify(cartamount));
+  cartData = [];
+  cartData.push(...cartamount);
+  window.location.reload();
+};

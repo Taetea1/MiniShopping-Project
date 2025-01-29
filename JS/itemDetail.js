@@ -20,28 +20,30 @@ const getInfo = () => {
   data.push(...userList);
   data.map((x, i) => {
     if (x.id === value) {
+      // datas.innerHTML += `
+      // <div class="text">
+      // <div class="imgbox"><img class="img" src="${x.img}" alt="선택된이미지" /></div>
+      //   <div class="flexbox">
+      //   <div class="title">${x.name}</div>
+      //   <div>
+      //     <button class="btn" onclick="checkAlert()">장바구니</button>
+      //     <button class="btn" onclick="checkAlert2()">구매하기</button>
+      //   </div>
+      // </div>
+      // <div>${x.price}원</div>
+      // <div>${x.content}</div>
+      // </div>`;
       datas.innerHTML += `
-      <div class="text">
-      <div class="imgbox"><img class="img" src="${x.img}" alt="선택된이미지" /></div>
-        <div class="flexbox">
-        <div class="title">${x.name}</div>
-        <div>
-          <button class="btn" onclick="checkAlert()">장바구니</button>
-          <button class="btn" onclick="checkAlert2()">구매하기</button>
-        </div>
-      </div>
-      <div>${x.price}원</div>
-      <div>${x.content}</div>
-      </div>`;
-      datas.innerHTML += `
-      <hr><div class="text2">
+      <div class="text2">
         <div class="imgbox2"><img class="img2" src="${x.img}" alt="선택된이미지" /></div>
           <div class="flexbox2">
             <div class="title2">${x.name}</div>
             <div class="content">${x.content}</div>
             <div class="price">${x.price}원</div>
+            <div>
             <button class="btn2" onclick="checkAlert()">장바구니</button>
-            <button class="btn2">구매하기</button>
+            <button class="btn2" onclick="checkAlert2()">구매하기</button>
+            </div>
           </div>
       </div>`;
     }
@@ -82,12 +84,12 @@ const getCart = () => {
           }
         });
       } else {
-        // alreadyCart();
         let cartList2 = JSON.parse(localStorage.getItem("cartInfo")) || [];
         let index = cartList2.findIndex((obj) => obj.id === `${value}`);
         cartList2[index].amount++;
 
         localStorage.setItem(`cartInfo`, JSON.stringify(cartList2));
+        alreadyCart();
       }
     }
   });
@@ -111,29 +113,9 @@ const checkAlert = () => {
 };
 const alreadyCart = () => {
   Swal.fire({
-    title: "이미 담긴 상품입니다!",
+    title: "장바구니에 담겼습니다!",
     text: "장바구니에서 확인해주세요",
-  });
-};
-
-const checkAlert2 = () => {
-  Swal.fire({
-    title: "구매",
-    text: "구매하시겠습니까??",
-    icon: "question",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "네",
-    cancelButtonText: "아니요",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire({
-        title: "구매했습니다!",
-        text: "사실 구매 기능은 아직 없습니다.",
-        icon: "success",
-      });
-    }
+    icon: "success",
   });
 };
 
