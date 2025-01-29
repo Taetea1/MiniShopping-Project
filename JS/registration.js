@@ -275,7 +275,7 @@ const changeData = (id) => {
     // 객체의 인덱스 찾기
     let index = changecar.findIndex((obj) => obj.id === `${id}`);
     changecar[index].name = c3.value;
-    changecar[index].price = c2.value;
+    changecar[index].price = String(Number(c2.value).toLocaleString());
     changecar[index].content = c.value;
     localStorage.setItem(`userInfo`, JSON.stringify(changecar));
 
@@ -284,10 +284,18 @@ const changeData = (id) => {
     data = [];
     data.push(...userL);
 
+    // 등록칸에서 수정된 아이템이 장바구니에 있다면 수정
+    let cartli = JSON.parse(localStorage.getItem("cartInfo")) || [];
+    let index2 = cartli.findIndex((item) => item.id === String(id));
+    if (index2 >= 0) {
+      cartli[index2].name = c3.value;
+      cartli[index2].price = String(Number(c2.value).toLocaleString());
+      cartli[index2].content = c.value;
+      localStorage.setItem("cartInfo", JSON.stringify(cartli));
+    }
+
     inputtest3.innerHTML = `<td class="test3${id}">${data[index].name}</td>`;
-    inputtest2.innerHTML = `<td class="test2${id}">${Number(
-      data[index].price
-    ).toLocaleString()}</td>`;
+    inputtest2.innerHTML = `<td class="test2${id}">${data[index].price}</td>`;
     inputtest.innerHTML = `<td class="test${id}">${data[index].content}</td>`;
   }
 };
@@ -357,6 +365,14 @@ const removeData = (id) => {
   let removebtn = document.getElementById(`${id}`);
   let leftData = data.filter((item) => item.id !== String(id));
   localStorage.setItem("userInfo", JSON.stringify(leftData));
+
+  // 등록칸에서 삭제된 아이템이 장바구니에 있다면 삭제
+  let cartdata = [];
+  let cartlist = JSON.parse(localStorage.getItem("cartInfo")) || [];
+  cartdata.push(...cartlist);
+  let leftcartData = cartdata.filter((item) => item.id !== String(id));
+  localStorage.setItem("cartInfo", JSON.stringify(leftcartData));
+
   let userLists = JSON.parse(localStorage.getItem("userInfo"));
   data = [];
   data.push(...userLists);
@@ -378,4 +394,5 @@ const removeData = (id) => {
     let tr = document.querySelector(`.tablebody > tr[id=id${id}]`);
     tr.remove();
   }
+  cartCount();
 };
