@@ -17,15 +17,6 @@ const getcartInfo = () => {
     // 배열을 빼고 넣어주기
     cartData.push(...cartList);
     cartData.map((x, i) => {
-      //   datas.innerHTML += `
-      //   <div id=id${x.id} class="flexbox">
-      //     <div class="imgbox"><img class="itemimg" src="${x.img}" alt="상품이미지" /></div>
-      //     <div>${x.name}</div>
-      //     <div>${x.price}원</div>
-      //     <div>${x.content}</div>
-      //     <div class="imgbox"><img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(${x.id})" /></div>
-      //   </div>
-      // `;
       datas.innerHTML += `
       <div id=id${x.id} class="flexbox2">
         <div class="flexbox2-2">
@@ -50,13 +41,20 @@ const getcartInfo = () => {
     `;
       const amountbox = document.querySelector(`.amountbox${x.id}`);
       if (x.amount <= 1) {
-        amountbox.innerHTML = `<button class="minus minus${x.id}" onclick="subCount(${x.id})" disabled>-</button>
-        <input class="amount amount${x.id}" type="text" name="amounts" value=${x.amount} size="3">
-        <button class="plus" onclick="addCount(${x.id})">+</button>`;
+        amountbox.innerHTML = `<button class="minus" onclick="subCount(${x.id})" disabled>-</button>
+        <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
+        <button class="plus" onclick="addCount(${x.id})">+</button>
+        <div id="amountinfo${x.id}"></div>`;
+      } else if (x.amount >= 55) {
+        amountbox.innerHTML = `<button class="minus" onclick="subCount(${x.id})">-</button>
+        <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
+        <button class="plus" onclick="addCount(${x.id})" disabled>+</button>
+        <div id="amountinfo${x.id}"></div>`;
       } else {
-        amountbox.innerHTML = `<button class="minus minus${x.id}" onclick="subCount(${x.id})">-</button>
-        <input class="amount amount${x.id}" type="text" name="amounts" value=${x.amount} size="3">
-        <button class="plus" onclick="addCount(${x.id})">+</button>`;
+        amountbox.innerHTML = `<button class="minus" onclick="subCount(${x.id})">-</button>
+        <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
+        <button class="plus" onclick="addCount(${x.id})">+</button>
+        <div id="amountinfo${x.id}"></div>`;
       }
 
       cellprice += x.amount * x.price.split(",").join("");
@@ -77,6 +75,35 @@ const getcartInfo = () => {
 
 const cartInfo = getcartInfo();
 
+// input에 숫자가 바뀌면
+const changeAmount = (id) => {
+  let num = document.querySelector(`.amount${id}`);
+  let cartamount = JSON.parse(localStorage.getItem("cartInfo")) || [];
+  let index = cartamount.findIndex((obj) => obj.id === String(id));
+
+  if (num.value > 0 && num.value <= 55) {
+    cartamount[index].amount = num.value;
+    localStorage.setItem("cartInfo", JSON.stringify(cartamount));
+    cartData = [];
+    cartData.push(...cartamount);
+  }
+  window.location.reload();
+};
+const enterkey = (id) => {
+  let num = document.querySelector(`.amount${id}`);
+  let amountinfo = document.getElementById(`amountinfo${id}`);
+  let cartamount = JSON.parse(localStorage.getItem("cartInfo")) || [];
+  let index = cartamount.findIndex((obj) => obj.id === String(id));
+  if (num.value < 0) {
+    num.value = cartamount[index].amount;
+    amountinfo.innerHTML = ``;
+  } else if (num.value > 55) {
+    num.value = 55;
+    amountinfo.innerHTML = `최대 구매 가능한 수량으로 변경됐습니다.`;
+  } else if (num.value < 55) {
+    amountinfo.innerHTML = ``;
+  }
+};
 // 전체삭제
 const allDelete = () => {
   localStorage.removeItem("cartInfo");
