@@ -153,8 +153,8 @@ li div {
   position: absolute;
   width: 25px;
   height: 25px;
-  bottom: 10px;
-  right: 8px;
+  bottom: 12px;
+  right: 10px;
   border-radius: 50%;
   display: none;
   background-color: #8f6228;
@@ -238,8 +238,8 @@ li div {
   .countbox {
     width: 20px;
     height: 20px;
-    bottom: 8px;
-    right: 3px;
+    bottom: 9px;
+    right: 6px;
     font-size: small;
   }
   .menu {
@@ -283,7 +283,7 @@ li div {
     width: 18px;
     height: 18px;
     bottom: 5px;
-    right: 1px;
+    right: 3px;
   }
   .menu {
     grid-template-columns: repeat(2, 1fr);
