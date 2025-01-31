@@ -196,3 +196,16 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
+const navbar = document.querySelector(".navbar");
+const header = document.querySelector(".header");
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 0) {
+    navbar.classList.add("on");
+    navbar.classList.add("fix");
+    header.classList.remove("shadow");
+  } else {
+    navbar.classList.remove("on");
+    navbar.classList.remove("fix");
+    header.classList.add("shadow");
+  }
+});

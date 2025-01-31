@@ -14,6 +14,7 @@ const getcartInfo = () => {
     return [];
   } else {
     let cellprice = 0;
+    let eachprice = [];
     // 배열을 빼고 넣어주기
     cartData.push(...cartList);
     cartData.map((x, i) => {
@@ -28,7 +29,7 @@ const getcartInfo = () => {
               <div class="name">${x.name}</div>
               <div>${x.content}</div>
             </div>
-            <div>${x.price}원</div>
+            <div class="eachprice"></div>
             <div class="amountbox amountbox${x.id}">
               
             </div>
@@ -44,21 +45,26 @@ const getcartInfo = () => {
         amountbox.innerHTML = `<button class="minus" onclick="subCount(${x.id})" disabled>-</button>
         <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
         <button class="plus" onclick="addCount(${x.id})">+</button>
-        <div id="amountinfo${x.id}"></div>`;
+        <div class="abox"><div id="amountinfo${x.id}" class="amountinfo"></div></div>`;
       } else if (x.amount >= 55) {
         amountbox.innerHTML = `<button class="minus" onclick="subCount(${x.id})">-</button>
         <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
         <button class="plus" onclick="addCount(${x.id})" disabled>+</button>
-        <div id="amountinfo${x.id}"></div>`;
+        <div class="abox"><div id="amountinfo${x.id}" class="amountinfo"></div></div>`;
       } else {
         amountbox.innerHTML = `<button class="minus" onclick="subCount(${x.id})">-</button>
         <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
         <button class="plus" onclick="addCount(${x.id})">+</button>
-        <div id="amountinfo${x.id}"></div>`;
+        <div class="abox"><div id="amountinfo${x.id}" class="amountinfo"></div></div>`;
       }
-
+      eachprice.push(x.amount * x.price.split(",").join(""));
       cellprice += x.amount * x.price.split(",").join("");
     });
+    let each = document.querySelector(".eachprice");
+    eachprice.forEach((item) => {
+      each.innerHTML = `${item.toLocaleString()}원`;
+    });
+
     pricewrap.innerHTML = `
       <div class="pricebox">
         <div class="name">주문 예상 금액</div>
