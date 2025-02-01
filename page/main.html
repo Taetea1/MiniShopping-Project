@@ -8,20 +8,19 @@
   <link href="../image/logo.png" rel="shortcut icon" type="image/x-icon">
 
   <link rel="stylesheet" href="../CSS/main.css" />
+  <link rel="stylesheet" href="../CSS/footer.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SNUGGLE</title>
 </head>
 
 <body>
-  <!-- 아이템들있는 메인페이지 -->
   <!-- 헤더 -->
   <header class="header shadow">
     <div class="header-box">
-      <div class="iconbox">
-        <img src="../image/로고.png" alt="home" title="홈" class="home"
-          onclick="location.href='http://127.0.0.1:5500/page/main.html'" />
-      </div>
+      <a href="http://127.0.0.1:5500/page/main.html" class="iconbox">
+        <img src="../image/로고.png" alt="홈" title="홈" class="home">
+      </a>
 
       <div class="controlBtn">
         <div class="iconbox"><img src="../image/loginIcon.png" alt="loginIcon" title="로그인" class="login"
@@ -40,33 +39,40 @@
   </header>
 
 
+  <!-- 네비게이션바 + 등록된 아이템들 -->
+  <main class="main-wrap">
 
-  <div class="main-wrap">
+    <nav>
+      <ul class="menus navbar">
+        <li>
+          <div class="all checked" data-hover="All" onclick="changeType('all')">All</div>
+        </li>
+        <li>
+          <div class="bed" data-hover="Bed" onclick="changeType('bed')">Bed</div>
+        </li>
+        <li>
+          <div class="desk" data-hover="Desk" onclick="changeType('desk')">Desk</div>
+        </li>
+        <li>
+          <div class="lighting" data-hover="Lighting" onclick="changeType('lighting')">Lighting</div>
+        </li>
+        <li>
+          <div class="ornament" data-hover="Ornament" onclick="changeType('ornament')">Ornament</div>
+        </li>
+      </ul>
+    </nav>
 
-    <ul class="menus navbar">
-      <li>
-        <div class="all checked" data-hover="All" onclick="changeType('all')">All</div>
-      </li>
-      <li>
-        <div class="bed" data-hover="Bed" onclick="changeType('bed')">Bed</div>
-      </li>
-      <li>
-        <div class="desk" data-hover="Desk" onclick="changeType('desk')">Desk</div>
-      </li>
-      <li>
-        <div class="lighting" data-hover="Lighting" onclick="changeType('lighting')">Lighting</div>
-      </li>
-      <li>
-        <div class="ornament" data-hover="Ornament" onclick="changeType('ornament')">Ornament</div>
-      </li>
-    </ul>
-
-
-    <div class="menu">
+    <section class="menu">
       <!-- JS로 요소 동적 추가 -->
-    </div>
-  </div>
+    </section>
+
+  </main>
+
+  <!-- 탑버튼 -->
   <img src="../image/topBtn.png" alt="topIcon" title="탑" id="top-btn" />
+
+  <!-- 풋터 -->
+  <div id="footer-container"></div>
 </body>
 
 <script src="../JS/main.js"></script>

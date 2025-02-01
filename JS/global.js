@@ -27,3 +27,11 @@ const checkAlert2 = () => {
     }
   });
 };
+
+// 풋터 삽입
+fetch("footer.html")
+  .then((response) => response.text())
+  .then((footdata) => {
+    document.getElementById("footer-container").innerHTML = footdata;
+  })
+  .catch((error) => console.error("Error fetching footer:", error)); // 에러 처리

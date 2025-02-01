@@ -1,5 +1,5 @@
 const datas = document.querySelector(".itemcart");
-const mainwrap = document.querySelector(".mainwrap");
+const mainwrap = document.querySelector(".main-wrap");
 const pricewrap = document.querySelector(".pricewrap");
 
 let cartData = []; //장바구니 데이터

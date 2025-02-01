@@ -9,7 +9,7 @@ for ([key, value] of queryParameterValue) {
 }
 // 주소받아오기 끝//
 
-const datas = document.querySelector(".mainwrap");
+const datas = document.querySelector(".main-wrap");
 let data = [];
 let cartData = []; //장바구니 데이터
 //정보 가져오기
