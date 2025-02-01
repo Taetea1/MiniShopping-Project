@@ -1,20 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #fdf5e6;
-  color: #4b4b4b;
-}
-/* 상품 이미지 크기조절 */
-.imgbox {
-  margin: 0 auto;
-}
-.imgs {
-  max-width: 100%;
-}
 /* 헤더 */
 .header {
   width: 100%;
@@ -23,8 +6,6 @@ body {
   margin-bottom: 20px;
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 /* 헤더 안 상자 */
@@ -35,16 +16,21 @@ body {
   height: 100%;
 }
 
+/* 각 아이콘의 박스 */
 .iconbox {
   height: 100%;
   display: flex;
   align-items: center;
 }
+
+/* 로고 아이콘 */
 .home {
   cursor: pointer;
   padding: 5px;
   height: 100%;
 }
+
+/* 로그인 아이콘 + 장바구니 아이콘 */
 .login,
 .cart {
   cursor: pointer;
@@ -52,15 +38,18 @@ body {
   margin: 8px;
   height: 100%;
 }
-
+/* 로그인 + 장바구니 상자 */
 .controlBtn {
   display: flex;
   align-items: center;
   margin: 0 8px;
 }
+
+/* 장바구니 + 숫자 박스 */
 .countwrap {
   position: relative;
 }
+/* 장바구니 숫자 박스 */
 .countbox {
   position: absolute;
   width: 25px;
@@ -71,41 +60,13 @@ body {
   display: none;
   background-color: #8f6228;
 }
+/* 장바구니 숫자 */
 .count {
   color: white;
   text-align: center;
 }
 
-.selectbox {
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-select {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-
-  padding: 0.4em 1.1em 0.2em 0.2em;
-  border: none;
-  border-radius: 0.5em;
-  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-}
-select:focus {
-  outline: 2px solid #ff8c00;
-}
-option {
-  padding: 4px;
-  font-size: 14px;
-  color: #fff;
-  background: #272822;
-}
-
-.main-wrap table {
-  table-layout: fixed;
-  word-wrap: break-word;
-}
-
+/* 등록하는 부분 + 등록된 상품들 */
 .input-wrap,
 .main-wrap {
   max-width: 1280px;
@@ -141,6 +102,41 @@ option {
   margin-bottom: 10px;
 }
 
+/* type 선택 부분 */
+.selectbox {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+select {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  padding: 0.4em 1.1em 0.2em 0.2em;
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+}
+select:focus {
+  outline: 2px solid #ff8c00;
+}
+option {
+  padding: 4px;
+  font-size: 14px;
+  color: #fff;
+  background: #272822;
+}
+
+/* 상품 이미지 크기조절 */
+.imgbox {
+  margin: 0 auto;
+}
+.imgs {
+  max-width: 100%;
+}
+
+/* 버튼 */
 .btn {
   display: block;
   margin-left: auto;
@@ -165,38 +161,10 @@ button[disabled]:hover {
   background-color: gray;
 }
 
-/* 생긴인풋 */
-.c {
-  font-size: large;
-  width: 100%;
-  outline: none;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 1px 2px 2px 2px rgb(240, 240, 240);
-}
-.changebtn {
-  padding: 10px 20px;
-  margin: 2px;
-  background-color: #deb887;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.changebtn:hover {
-  background-color: #bc8f8f;
-}
-
-.changecar {
-  font-size: 12px;
-  color: #b22222;
-}
-
-.flexbtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* 동적으로 생긴 테이블 */
+.main-wrap table {
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 
 table {
@@ -213,6 +181,43 @@ table td {
 table thead {
   background-color: #f5deb3;
   text-align: center;
+}
+
+/* 생긴인풋 */
+.c {
+  font-size: large;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 1px 2px 2px 2px rgb(240, 240, 240);
+}
+/* 수정, 삭제 */
+.changebtn {
+  padding: 10px 20px;
+  margin: 2px;
+  background-color: #deb887;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.changebtn:hover {
+  background-color: #bc8f8f;
+}
+
+/* 조건 확인 */
+.changecar {
+  font-size: 12px;
+  color: #b22222;
+}
+
+/* 관리 버튼 상자 */
+.flexbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 860px) {

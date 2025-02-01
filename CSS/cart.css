@@ -60,18 +60,6 @@
   text-align: center;
 }
 
-.flexbox {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.5em;
-  background-color: #fffaf0;
-  max-width: 1280px;
-  margin: 10px auto;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
 .iconimg {
   width: 90px;
   padding: 20px;
@@ -114,7 +102,6 @@
   font-size: 2em;
 }
 
-/* 예시 */
 .titlebox {
   margin-bottom: 10px;
   word-wrap: break-word;

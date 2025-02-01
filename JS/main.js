@@ -2,19 +2,6 @@ const datas = document.querySelector(".main-wrap");
 const menu = document.querySelector(".menu");
 let data = [];
 
-// 장바구니 개수
-const cartCount = () => {
-  let count = document.querySelector(".count");
-  let countbox = document.querySelector(".countbox");
-  let cartList = JSON.parse(localStorage.getItem("cartInfo")) || [];
-  if (cartList.length === 0) {
-    countbox.style.display = "none";
-  } else {
-    countbox.style.display = "block";
-    count.innerHTML = cartList.length;
-  }
-};
-cartCount();
 //정보 가져오기
 const getUserInfo = () => {
   let userList = JSON.parse(localStorage.getItem("userInfo")) || [];

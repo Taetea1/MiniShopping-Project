@@ -1,7 +1,73 @@
+/* 헤더 */
+.header {
+  z-index: 999;
+  width: 100%;
+  background-color: #deb887;
+  height: 120px;
+  position: fixed;
+  top: 0;
+}
+.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* 헤더 안 상자 */
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.home {
+  cursor: pointer;
+  padding: 5px;
+  height: 100%;
+}
+
+.login,
+.cart {
+  cursor: pointer;
+  width: 70px;
+  margin: 8px;
+  height: 100%;
+}
+
+.controlBtn {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
+}
+.countwrap {
+  position: relative;
+}
+.countbox {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  bottom: 12px;
+  right: 10px;
+  border-radius: 50%;
+  display: none;
+  background-color: #8f6228;
+}
+.count {
+  color: white;
+  text-align: center;
+}
+.iconbox {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.main-wrap {
+  width: 100%;
+  margin-top: 150px;
+}
+
 /* 시작 */
 .menus {
   display: flex;
   justify-content: center;
+  padding-left: 0px;
 }
 .menus div {
   font-size: 17pt;
@@ -52,6 +118,15 @@ li div {
 }
 
 /* 끝 */
+
+.menu {
+  margin: 0 auto;
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
 .tungbox {
   width: 100%;
   display: flex;
@@ -60,98 +135,18 @@ li div {
 .tungimg {
   width: 50%;
 }
-.main-wrap {
-  width: 100%;
-  margin-top: 150px;
-}
-.menu {
-  margin: 0 auto;
-  max-width: 1280px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-}
+
 /* 상품 이미지 크기조절 */
 .imgbox {
   border-radius: 8px;
   width: 200px;
   margin: 0 auto;
-  object-fit: cover;
+  overflow: hidden;
 }
 .imgs {
   width: 200px;
   height: 200px;
   padding: 40px;
-}
-
-/* 헤더 */
-.header {
-  z-index: 999;
-  width: 100%;
-  background-color: #deb887;
-  height: 120px;
-  position: fixed;
-  top: 0;
-}
-.shadow {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-/* 헤더 안 상자 */
-.header-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-}
-.navbox {
-  display: flex;
-}
-.navtext {
-  color: #eee;
-  margin: 0 10px;
-  cursor: pointer;
-}
-
-.iconbox {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.home {
-  cursor: pointer;
-  padding: 5px;
-  height: 100%;
-}
-
-.login,
-.cart {
-  cursor: pointer;
-  width: 70px;
-  margin: 8px;
-  height: 100%;
-}
-
-.controlBtn {
-  display: flex;
-  align-items: center;
-  margin: 0 8px;
-}
-.countwrap {
-  position: relative;
-}
-.countbox {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  bottom: 12px;
-  right: 10px;
-  border-radius: 50%;
-  display: none;
-  background-color: #8f6228;
-}
-.count {
-  color: white;
-  text-align: center;
 }
 
 .box {
@@ -166,11 +161,6 @@ li div {
     transform: scale(1.2);
   }
 }
-.happyimg {
-  width: 20px;
-  cursor: pointer;
-  display: flex;
-}
 .textbox {
   display: flex;
   justify-content: space-between;
@@ -178,6 +168,12 @@ li div {
   margin: 10px;
   font-weight: bolder;
 }
+.happyimg {
+  width: 20px;
+  cursor: pointer;
+  display: flex;
+}
+
 #top-btn {
   display: none;
   position: fixed;
@@ -252,13 +248,6 @@ li div {
     top: 84px;
     padding: 15px;
   }
-  .footer {
-    font-size: 8px;
-    height: 70px;
-  }
-  .footerwrap {
-    height: 70px;
-  }
 }
 @media screen and (max-width: 650px) {
   .main-wrap {
@@ -300,14 +289,5 @@ li div {
   .on {
     top: 64px;
     padding: 10px;
-  }
-  .footer {
-    height: 60px;
-  }
-  .footerwrap {
-    height: 60px;
-  }
-  .footerbox {
-    font-size: 5px;
   }
 }

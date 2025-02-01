@@ -130,20 +130,6 @@ const removeData = (id) => {
   window.location.reload();
 };
 
-// 장바구니 개수
-const cartCount = () => {
-  let count = document.querySelector(".count");
-  let countbox = document.querySelector(".countbox");
-  let cartList = JSON.parse(localStorage.getItem("cartInfo")) || [];
-  if (cartList.length === 0) {
-    countbox.style.display = "none";
-  } else {
-    countbox.style.display = "block";
-    count.innerHTML = cartList.length;
-  }
-};
-cartCount();
-
 // 더하기 함수
 const addCount = (id) => {
   let num = ++document.querySelector(`.amount${id}`).value;
