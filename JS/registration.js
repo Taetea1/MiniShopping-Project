@@ -43,6 +43,13 @@ const lightingimg = [
   "../image/조명3.png",
   "../image/조명4.png",
   "../image/조명5.png",
+  "../image/조명6.png",
+  "../image/조명7.png",
+  "../image/조명8.png",
+  "../image/조명9.png",
+  "../image/조명10.png",
+  "../image/조명11.png",
+  "../image/조명12.png",
 ];
 const ornamentimg = [
   "../image/룽나레.png",
@@ -85,11 +92,11 @@ const getUserInfo = () => {
       tbodys.innerHTML += `
     <tr id=id${x.id}>
       <td><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></td>
-      <td class="test3${x.id}">${x.name}</td>
-      <td class="test2${x.id}">${x.price}</td>
-      <td class="test${x.id}">${x.content}</td>
+      <td class="testname${x.id}">${x.name}</td>
+      <td class="testprice${x.id}">${x.price}</td>
+      <td class="testcontent${x.id}">${x.content}</td>
       <td><div class="flexbtn">
-      <button id="${x.id}" class="changebtn" onclick=changeData(${x.id})>수정</button><button class="changebtn" onclick=removeData(${x.id})>삭제</button>
+      <button id="re${x.id}" class="changebtn" onclick=changeData(${x.id})>수정</button><button class="changebtn" onclick=removeData(${x.id})>삭제</button>
       </div></td>
     </tr>
   `;
@@ -176,7 +183,7 @@ btn.addEventListener("click", () => {
     } else if (types === "ornament") {
       img.push(...ornamentimg);
     }
-    console.log(img);
+
     // 데이터 넣기
     let userInfo1 = {
       id: idd.value,
@@ -195,17 +202,17 @@ btn.addEventListener("click", () => {
     <td><div class="imgbox"><img class="imgs" src="${
       data[data.length - 1].img
     }" alt="상품이미지" /></div></td>
-    <td class="test3${data[data.length - 1].id}">${
+    <td class="testname${data[data.length - 1].id}">${
       data[data.length - 1].name
     }</td>
-      <td class="test2${data[data.length - 1].id}">${
+      <td class="testprice${data[data.length - 1].id}">${
       data[data.length - 1].price
     }</td>
-      <td class="test${data[data.length - 1].id}">${
+      <td class="testcontent${data[data.length - 1].id}">${
       data[data.length - 1].content
     }</td>
       <td><div class="flexbtn">
-      <button id="${
+      <button id="re${
         data[data.length - 1].id
       }" class="changebtn" onclick=changeData(${
       data[data.length - 1].id
@@ -229,22 +236,23 @@ let ischangecar = false;
 let ischangeage = false;
 let ischangename = false;
 const changeData = (id) => {
-  const inputtest3 = document.querySelector(`.test3${id}`);
-  const inputtest2 = document.querySelector(`.test2${id}`);
-  const inputtest = document.querySelector(`.test${id}`);
-  let btnsss = document.getElementById(`${id}`);
-  if (btnsss.innerText === "수정") {
+  const inputtestname = document.querySelector(`.testname${id}`);
+  const inputtestprice = document.querySelector(`.testprice${id}`);
+  const inputtestcontent = document.querySelector(`.testcontent${id}`);
+  let btnsss = document.getElementById(`re${id}`);
+
+  if (btnsss.innerText.trim() === "수정") {
     btnsss.innerText = "수정완료";
-    inputtest3.innerHTML = `
-    <input class="c c3${id}" oninput=checkChangename(${id}) value="${inputtest3.innerText}" />`;
-    inputtest2.innerHTML = `
-    <input type=number oninput="changePrice(${id})" class="c c2${id}" value="${inputtest2.innerText.replace(
+    inputtestname.innerHTML = `
+    <input class="c channame${id}" oninput="checkChangename(${id})" value="${inputtestname.innerText}" />`;
+    inputtestprice.innerHTML = `
+    <input type="number" oninput="changePrice(${id})" class="c chanprice${id}" value="${inputtestprice.innerText.replace(
       /,/g,
       ""
     )}" />
     <div class="changecar changecar2${id}"></div>`;
-    inputtest.innerHTML = `
-    <input class="c c${id}" oninput=checkChangeContent(${id}) value="${inputtest.innerText}"/>
+    inputtestcontent.innerHTML = `
+    <input class="c chancontent${id}" oninput="checkChangeContent(${id})" value="${inputtestcontent.innerText}"/>
     <div class="changecar changecar${id}"></div>`;
   } else if (
     btnsss.innerText === "수정완료" &&
@@ -258,14 +266,14 @@ const changeData = (id) => {
     let changecar = JSON.parse(localStorage.getItem("userInfo"));
 
     // 나중에 만들어줘야 각각을 알 수 있음
-    let c3 = document.querySelector(`.c3${id}`);
-    let c2 = document.querySelector(`.c2${id}`);
-    let c = document.querySelector(`.c${id}`);
+    let channame = document.querySelector(`.channame${id}`);
+    let chanprice = document.querySelector(`.chanprice${id}`);
+    let chancontent = document.querySelector(`.chancontent${id}`);
     // 객체의 인덱스 찾기
     let index = changecar.findIndex((obj) => obj.id === `${id}`);
-    changecar[index].name = c3.value;
-    changecar[index].price = String(Number(c2.value).toLocaleString());
-    changecar[index].content = c.value;
+    changecar[index].name = channame.value;
+    changecar[index].price = String(Number(chanprice.value).toLocaleString());
+    changecar[index].content = chancontent.value;
     localStorage.setItem(`userInfo`, JSON.stringify(changecar));
 
     // 바뀐값 전역변수에 넣어주기
@@ -277,21 +285,21 @@ const changeData = (id) => {
     let cartli = JSON.parse(localStorage.getItem("cartInfo")) || [];
     let index2 = cartli.findIndex((item) => item.id === String(id));
     if (index2 >= 0) {
-      cartli[index2].name = c3.value;
-      cartli[index2].price = String(Number(c2.value).toLocaleString());
-      cartli[index2].content = c.value;
+      cartli[index2].name = channame.value;
+      cartli[index2].price = String(Number(chanprice.value).toLocaleString());
+      cartli[index2].content = chancontent.value;
       localStorage.setItem("cartInfo", JSON.stringify(cartli));
     }
 
-    inputtest3.innerHTML = `<td class="test3${id}">${data[index].name}</td>`;
-    inputtest2.innerHTML = `<td class="test2${id}">${data[index].price}</td>`;
-    inputtest.innerHTML = `<td class="test${id}">${data[index].content}</td>`;
+    inputtestname.innerHTML = `<td class="testname${id}">${data[index].name}</td>`;
+    inputtestprice.innerHTML = `<td class="testprice${id}">${data[index].price}</td>`;
+    inputtestcontent.innerHTML = `<td class="testcontent${id}">${data[index].content}</td>`;
   }
 };
 
 // 버튼 활성화/비활성화
 const changedisable = (id) => {
-  let bbb = document.getElementById(`${id}`);
+  let bbb = document.getElementById(`re${id}`);
   if (
     ischangeage === false &&
     ischangecar === false &&
@@ -305,8 +313,8 @@ const changedisable = (id) => {
 
 // 수정할때 검사할 함수들
 const checkChangename = (id) => {
-  let nameinput = document.querySelector(`.c3${id}`);
-  let b3 = document.getElementById(`${id}`);
+  let nameinput = document.querySelector(`.channame${id}`);
+  let b3 = document.getElementById(`re${id}`);
 
   if (nameinput.value.length <= 0) {
     ischangename = true;
@@ -321,8 +329,8 @@ const checkChangename = (id) => {
 // 바뀐 가격 조건 확인
 const changePrice = (id) => {
   const ageEle = document.querySelector(`.changecar2${id}`);
-  let b2 = document.getElementById(`${id}`);
-  let ageinput = document.querySelector(`.c2${id}`);
+  let b2 = document.getElementById(`re${id}`);
+  let ageinput = document.querySelector(`.chanprice${id}`);
   if (ageinput.value.length === 0) {
     ageEle.textContent = "";
     ischangeage = true;
@@ -337,8 +345,8 @@ const changePrice = (id) => {
 
 // 바뀐 내용 조건 확인
 const checkChangeContent = (id) => {
-  let b1 = document.getElementById(`${id}`);
-  let carinput = document.querySelector(`.c${id}`);
+  let b1 = document.getElementById(`re${id}`);
+  let carinput = document.querySelector(`.chancontent${id}`);
   const carEle = document.querySelector(`.changecar${id}`);
   if (carinput.value.length === 0) {
     carEle.textContent = "";
@@ -354,7 +362,7 @@ const checkChangeContent = (id) => {
 // 삭제
 const removeData = (id) => {
   // 데이터덮어씌우기
-  let removebtn = document.getElementById(`${id}`);
+  let removebtn = document.getElementById(`re${id}`);
   let leftData = data.filter((item) => item.id !== String(id));
   localStorage.setItem("userInfo", JSON.stringify(leftData));
 
@@ -375,10 +383,10 @@ const removeData = (id) => {
       tbodys.innerHTML += `
     <tr>
       <td><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></td>
-      <td>${x.name}</td>
-      <td>${x.price}</td>
-      <td class="test${x.id}">${x.content}</td>
-      <td><div class="flexbtn"><button id="${x.id}" class="changebtn" onclick=changeData(${x.id})>수정</button><button class="changebtn" onclick=removeData(${x.id})>삭제</button></div></td>
+      <td class="testname${x.id}">${x.name}</td>
+      <td class="testprice${x.id}">${x.price}</td>
+      <td class="testcontent${x.id}">${x.content}</td>
+      <td><div class="flexbtn"><button id="re${x.id}" class="changebtn" onclick=changeData(${x.id})>수정</button><button class="changebtn" onclick=removeData(${x.id})>삭제</button></div></td>
     </tr>
   `;
     });

@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const navbar = document.querySelector(".navbar");
 const header = document.querySelector(".header");
 window.addEventListener("scroll", function () {
-  if (window.scrollY > 0) {
+  if (window.scrollY > 50) {
     navbar.classList.add("on");
     navbar.classList.add("fix");
     header.classList.remove("shadow");
