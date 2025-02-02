@@ -9,7 +9,13 @@ const getcartInfo = () => {
   let cartList = JSON.parse(localStorage.getItem("cartInfo")) || [];
   if (cartList.length === 0) {
     mainwrap.innerHTML += `
-    <div class="tungbox"><img class="tungimg" src="../image/tung.png" alt="빈이미지" /></div>
+    
+    <div class="tungbox">
+      <div class="tungcontent">
+        <div class="tungtext">장바구니에 담은 상품이 없습니다.</div>
+        <div class="tungimg"><img src="../image/carttung.png" alt="빈이미지" /></div>
+      </div>
+    </div>
   `;
     return [];
   } else {

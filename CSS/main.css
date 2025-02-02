@@ -128,14 +128,24 @@ li div {
 }
 
 .tungbox {
-  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.tungcontent {
+  background-color: #fffaf0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+}
+.tungtext {
+  font-weight: bold;
+  margin: 20px 0;
+  text-align: center;
+}
+.tungimg {
   display: flex;
   justify-content: center;
 }
-.tungimg {
-  width: 50%;
-}
-
 /* 상품 이미지 크기조절 */
 .imgbox {
   border-radius: 8px;

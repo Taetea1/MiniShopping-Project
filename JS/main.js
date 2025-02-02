@@ -7,8 +7,13 @@ const getUserInfo = () => {
   let userList = JSON.parse(localStorage.getItem("userInfo")) || [];
 
   if (userList.length === 0) {
-    datas.innerHTML += `
-    <div class="tungbox"><img class="tungimg" src="../image/tung.png" alt="빈이미지" /></div>
+    datas.innerHTML = `
+    <div class="tungbox">
+      <div class="tungcontent">
+        <div class="tungtext">장바구니에 담은 상품이 없습니다.</div>
+        <div class="tungimg"><img src="../image/producttung.png" alt="빈이미지" /></div>
+      </div>
+    </div>
   `;
     return [];
   } else {
