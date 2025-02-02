@@ -183,6 +183,8 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
+
+// 스크롤시 카테고리메뉴 fix
 const navbar = document.querySelector(".navbar");
 const header = document.querySelector(".header");
 window.addEventListener("scroll", function () {

@@ -29,7 +29,7 @@ const getcartInfo = () => {
               <div class="name">${x.name}</div>
               <div>${x.content}</div>
             </div>
-            <div class="eachprice"></div>
+            <div class="eachprice${x.id}"></div>
             <div class="amountbox amountbox${x.id}">
               
             </div>
@@ -60,9 +60,9 @@ const getcartInfo = () => {
       eachprice.push(x.amount * x.price.split(",").join(""));
       cellprice += x.amount * x.price.split(",").join("");
     });
-    let each = document.querySelector(".eachprice");
-    eachprice.forEach((item) => {
-      each.innerHTML = `${item.toLocaleString()}원`;
+    cartData.map((item, i) => {
+      let each = document.querySelector(`.eachprice${item.id}`);
+      each.innerHTML = `${eachprice[i].toLocaleString()}원`;
     });
 
     pricewrap.innerHTML = `
@@ -95,6 +95,8 @@ const changeAmount = (id) => {
   }
   window.location.reload();
 };
+
+// 입력 가능 수량 확인
 const enterkey = (id) => {
   let num = document.querySelector(`.amount${id}`);
   let amountinfo = document.getElementById(`amountinfo${id}`);
@@ -110,6 +112,7 @@ const enterkey = (id) => {
     amountinfo.innerHTML = ``;
   }
 };
+
 // 전체삭제
 const allDelete = () => {
   localStorage.removeItem("cartInfo");
@@ -141,6 +144,7 @@ const addCount = (id) => {
   cartData.push(...cartamount);
   window.location.reload();
 };
+
 // 빼기 함수
 const subCount = (id) => {
   let num = --document.querySelector(`.amount${id}`).value;
@@ -151,5 +155,6 @@ const subCount = (id) => {
   localStorage.setItem("cartInfo", JSON.stringify(cartamount));
   cartData = [];
   cartData.push(...cartamount);
+
   window.location.reload();
 };

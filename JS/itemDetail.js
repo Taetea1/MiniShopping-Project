@@ -1,4 +1,4 @@
-// 주소받아오기//
+// 주소받아오기 시작//
 let queryString = window.location.search;
 
 //parameter와 value를 분리
@@ -10,8 +10,9 @@ for ([key, value] of queryParameterValue) {
 // 주소받아오기 끝//
 
 const datas = document.querySelector(".main-wrap");
-let data = [];
+let data = []; //등록된 데이터
 let cartData = []; //장바구니 데이터
+
 //정보 가져오기
 const getInfo = () => {
   let userList = JSON.parse(localStorage.getItem("userInfo"));
@@ -20,19 +21,6 @@ const getInfo = () => {
   data.push(...userList);
   data.map((x, i) => {
     if (x.id === value) {
-      // datas.innerHTML += `
-      // <div class="text">
-      // <div class="imgbox"><img class="img" src="${x.img}" alt="선택된이미지" /></div>
-      //   <div class="flexbox">
-      //   <div class="title">${x.name}</div>
-      //   <div>
-      //     <button class="btn" onclick="checkAlert()">장바구니</button>
-      //     <button class="btn" onclick="checkAlert2()">구매하기</button>
-      //   </div>
-      // </div>
-      // <div>${x.price}원</div>
-      // <div>${x.content}</div>
-      // </div>`;
       datas.innerHTML += `
       <div class="text2">
         <div class="imgbox2"><img class="img2" src="${x.img}" alt="선택된이미지" /></div>
@@ -51,6 +39,7 @@ const getInfo = () => {
 };
 getInfo();
 
+// 장바구니 정보
 const getCart = () => {
   let cartList = JSON.parse(localStorage.getItem("cartInfo")) || [];
 
@@ -84,6 +73,7 @@ const getCart = () => {
           }
         });
       } else {
+        // 장바구니에 이미 존재하는 경우
         let cartList2 = JSON.parse(localStorage.getItem("cartInfo")) || [];
         let index = cartList2.findIndex((obj) => obj.id === `${value}`);
         cartList2[index].amount++;
@@ -94,6 +84,7 @@ const getCart = () => {
     }
   });
 };
+
 //담을건지 확인
 const checkAlert = () => {
   Swal.fire({
@@ -111,6 +102,7 @@ const checkAlert = () => {
     }
   });
 };
+
 const alreadyCart = () => {
   Swal.fire({
     title: "장바구니에 담겼습니다!",

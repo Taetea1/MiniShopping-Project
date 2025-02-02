@@ -68,6 +68,7 @@ datas.innerHTML = `
     <tbody class="tablebody">
     </tbody>
     </table>`;
+
 const tbodys = document.querySelector(".tablebody");
 let data = [];
 
@@ -157,6 +158,7 @@ function getType() {
   types = document.getElementById("types").value;
 }
 
+// 저장버튼 누르면 실행
 btn.addEventListener("click", () => {
   if (
     isid === false &&
@@ -287,6 +289,7 @@ const changeData = (id) => {
   }
 };
 
+// 버튼 활성화/비활성화
 const changedisable = (id) => {
   let bbb = document.getElementById(`${id}`);
   if (
@@ -315,6 +318,7 @@ const checkChangename = (id) => {
   changedisable(id);
 };
 
+// 바뀐 가격 조건 확인
 const changePrice = (id) => {
   const ageEle = document.querySelector(`.changecar2${id}`);
   let b2 = document.getElementById(`${id}`);
@@ -331,6 +335,7 @@ const changePrice = (id) => {
   changedisable(id);
 };
 
+// 바뀐 내용 조건 확인
 const checkChangeContent = (id) => {
   let b1 = document.getElementById(`${id}`);
   let carinput = document.querySelector(`.c${id}`);
