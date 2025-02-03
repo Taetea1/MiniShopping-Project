@@ -67,6 +67,10 @@
   flex: 1;
 }
 
+.testname {
+  margin-bottom: 10px;
+}
+
 /* 시작 */
 .menus {
   display: flex;

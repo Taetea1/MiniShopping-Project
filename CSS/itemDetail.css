@@ -82,11 +82,10 @@
 }
 /* 상품 이미지 크기조절 */
 .imgbox2 {
-  width: 50%;
+  margin: 0 auto;
 }
 .img2 {
   width: 100%;
-  padding: 50px;
   height: auto;
   max-width: 500px;
 }
@@ -140,6 +139,9 @@
   }
 }
 @media screen and (max-width: 650px) {
+  .text2 {
+    display: block;
+  }
   .main-wrap {
     margin-top: 100px;
   }

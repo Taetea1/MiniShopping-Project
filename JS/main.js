@@ -26,7 +26,7 @@ const getUserInfo = () => {
           <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
           <div class="textbox">
             <div class="textflex">
-              <div class="testname${x.id}">${x.name}</div>        
+              <div class="testname testname${x.id}">${x.name}</div>        
               <div class="testprice${x.id}">${x.price}원</div>
             </div>
               <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
@@ -40,7 +40,7 @@ const getUserInfo = () => {
           <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
           <div class="textbox">
             <div class="textflex">
-              <div class="testname${x.id}">${x.name}</div>        
+              <div class="testname testname${x.id}">${x.name}</div>        
               <div class="testprice${x.id}">${x.price}</div>
             </div>
               <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
@@ -109,7 +109,7 @@ const changeType = (type) => {
           <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
           <div class="textbox">
             <div class="textflex">
-              <div class="testname${x.id}">${x.name}</div>        
+              <div class="testname testname${x.id}">${x.name}</div>        
               <div class="testprice${x.id}">${x.price}원</div>
             </div>
               <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
@@ -123,7 +123,7 @@ const changeType = (type) => {
           <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
           <div class="textbox">
             <div class="textflex">
-              <div class="testname${x.id}">${x.name}</div>        
+              <div class="testname testname${x.id}">${x.name}</div>        
               <div class="testprice${x.id}">${x.price}</div>
             </div>
               <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
@@ -143,7 +143,7 @@ const changeType = (type) => {
         <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
         <div class="textbox">
           <div class="textflex">
-            <div class="testname${x.id}">${x.name}</div>        
+            <div class="testname testname${x.id}">${x.name}</div>        
             <div class="testprice${x.id}">${x.price}원</div>
           </div>
             <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
@@ -157,7 +157,7 @@ const changeType = (type) => {
         <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
         <div class="textbox">
           <div class="textflex">
-            <div class="testname${x.id}">${x.name}</div>        
+            <div class="testname testname${x.id}">${x.name}</div>        
             <div class="testprice${x.id}">${x.price}</div>
           </div>
             <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
