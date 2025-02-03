@@ -1,3 +1,9 @@
+.testname,
+.testprice {
+  font-family: "Gowun Dodum", serif;
+  font-weight: 800;
+  font-style: normal;
+}
 /* 헤더 */
 .header {
   z-index: 999;

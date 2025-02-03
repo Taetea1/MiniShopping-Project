@@ -1,3 +1,11 @@
+.title2,
+.content,
+.price {
+  font-family: "Gowun Dodum", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
 /* 헤더 */
 .header {
   width: 100%;

@@ -1,3 +1,13 @@
+.titlebox,
+.name,
+.totalprice,
+.eachprice,
+.amount {
+  font-family: "Gowun Dodum", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
 /* 헤더 */
 .header {
   z-index: 999;

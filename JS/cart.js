@@ -35,7 +35,7 @@ const getcartInfo = () => {
               <div class="name">${x.name}</div>
               <div>${x.content}</div>
             </div>
-            <div class="eachprice${x.id}"></div>
+            <div class="eachprice eachprice${x.id}"></div>
             <div class="amountbox amountbox${x.id}">
               
             </div>

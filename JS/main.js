@@ -27,7 +27,7 @@ const getUserInfo = () => {
           <div class="textbox">
             <div class="textflex">
               <div class="testname testname${x.id}">${x.name}</div>        
-              <div class="testprice${x.id}">${x.price}원</div>
+              <div class="testprice testprice${x.id}">${x.price}원</div>
             </div>
               <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
           </div>
@@ -41,7 +41,7 @@ const getUserInfo = () => {
           <div class="textbox">
             <div class="textflex">
               <div class="testname testname${x.id}">${x.name}</div>        
-              <div class="testprice${x.id}">${x.price}</div>
+              <div class="testprice testprice${x.id}">${x.price}</div>
             </div>
               <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
           </div>
@@ -110,7 +110,7 @@ const changeType = (type) => {
           <div class="textbox">
             <div class="textflex">
               <div class="testname testname${x.id}">${x.name}</div>        
-              <div class="testprice${x.id}">${x.price}원</div>
+              <div class="testprice testprice${x.id}">${x.price}원</div>
             </div>
               <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
           </div>
@@ -124,7 +124,7 @@ const changeType = (type) => {
           <div class="textbox">
             <div class="textflex">
               <div class="testname testname${x.id}">${x.name}</div>        
-              <div class="testprice${x.id}">${x.price}</div>
+              <div class="testprice testprice${x.id}">${x.price}</div>
             </div>
               <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
           </div>
@@ -144,7 +144,7 @@ const changeType = (type) => {
         <div class="textbox">
           <div class="textflex">
             <div class="testname testname${x.id}">${x.name}</div>        
-            <div class="testprice${x.id}">${x.price}원</div>
+            <div class="testprice testprice${x.id}">${x.price}원</div>
           </div>
             <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
         </div>
@@ -158,7 +158,7 @@ const changeType = (type) => {
         <div class="textbox">
           <div class="textflex">
             <div class="testname testname${x.id}">${x.name}</div>        
-            <div class="testprice${x.id}">${x.price}</div>
+            <div class="testprice testprice${x.id}">${x.price}</div>
           </div>
             <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
         </div>
