@@ -25,7 +25,7 @@ const getcartInfo = () => {
     cartData.push(...cartList);
     cartData.map((x, i) => {
       datas.innerHTML += `
-      <div id=id${x.id} class="flexbox2">
+      <div id=id${x.id} class="flexbox2" onclick="moveDetailPage(${x.id})"  ondblclick="event.preventDefault()">
         <div class="flexbox2-2">
           <div class="imgbox">
             <img class="itemimg" src="${x.img}" alt="상품이미지" />
@@ -42,25 +42,25 @@ const getcartInfo = () => {
           </div>
         </div>
         <div class="imgbox2">
-          <img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(${x.id})" />
+          <img id=${x.id} class="iconimg" src="../image/trash.png" alt="삭제아이콘" onclick="removeData(event, ${x.id})" />
         </div>
       </div>
     `;
       const amountbox = document.querySelector(`.amountbox${x.id}`);
       if (x.amount <= 1) {
-        amountbox.innerHTML = `<button class="minus" onclick="subCount(${x.id})" disabled>-</button>
+        amountbox.innerHTML = `<button class="minus" onclick="subCount(event, ${x.id})" disabled>-</button>
         <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
-        <button class="plus" onclick="addCount(${x.id})">+</button>
+        <button class="plus" onclick="addCount(event, ${x.id})">+</button>
         <div class="abox"><div id="amountinfo${x.id}" class="amountinfo"></div></div>`;
       } else if (x.amount >= 55) {
-        amountbox.innerHTML = `<button class="minus" onclick="subCount(${x.id})">-</button>
+        amountbox.innerHTML = `<button class="minus" onclick="subCount(event, ${x.id})">-</button>
         <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
-        <button class="plus" onclick="addCount(${x.id})" disabled>+</button>
+        <button class="plus" onclick="addCount(event, ${x.id})" disabled>+</button>
         <div class="abox"><div id="amountinfo${x.id}" class="amountinfo"></div></div>`;
       } else {
-        amountbox.innerHTML = `<button class="minus" onclick="subCount(${x.id})">-</button>
+        amountbox.innerHTML = `<button class="minus" onclick="subCount(event, ${x.id})">-</button>
         <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
-        <button class="plus" onclick="addCount(${x.id})">+</button>
+        <button class="plus" onclick="addCount(event, ${x.id})">+</button>
         <div class="abox"><div id="amountinfo${x.id}" class="amountinfo"></div></div>`;
       }
       eachprice.push(x.amount * x.price.split(",").join(""));
@@ -126,7 +126,10 @@ const allDelete = () => {
 };
 
 // 삭제
-const removeData = (id) => {
+const removeData = (event, id) => {
+  // 이벤트 전파를 막음
+  event.stopPropagation();
+
   // 데이터덮어씌우기
   let leftData = cartData.filter((item) => item.id !== String(id));
   localStorage.setItem("cartInfo", JSON.stringify(leftData));
@@ -140,7 +143,10 @@ const removeData = (id) => {
 };
 
 // 더하기 함수
-const addCount = (id) => {
+const addCount = (event, id) => {
+  // 이벤트 전파를 막음
+  event.stopPropagation();
+
   let num = ++document.querySelector(`.amount${id}`).value;
   let cartamount = JSON.parse(localStorage.getItem("cartInfo")) || [];
   let index = cartamount.findIndex((obj) => obj.id === String(id));
@@ -152,7 +158,10 @@ const addCount = (id) => {
 };
 
 // 빼기 함수
-const subCount = (id) => {
+const subCount = (event, id) => {
+  // 이벤트 전파를 막음
+  event.stopPropagation();
+
   let num = --document.querySelector(`.amount${id}`).value;
 
   let cartamount = JSON.parse(localStorage.getItem("cartInfo")) || [];
@@ -163,4 +172,9 @@ const subCount = (id) => {
   cartData.push(...cartamount);
 
   window.location.reload();
+};
+// 각 페이지의 상세페이지(쿼리사용)
+const moveDetailPage = (id) => {
+  const url = new URL(`http://127.0.0.1:5500/page/itemDetail.html?id=${id}`);
+  window.location.href = `${url}`;
 };
