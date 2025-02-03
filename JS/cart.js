@@ -78,7 +78,7 @@ const getcartInfo = () => {
           <div>총 상품 가격</div>
           <div>${cellprice.toLocaleString()}원</div>
         </div>
-        <button class="buybtn" onclick="checkAlert2()">구매하기</button>
+        <button class="buybtn" onclick="readyalert('구매하기')">구매하기</button>
       </div>`;
     mainwrap.innerHTML += `<button class="alldeletebtn" onclick="allDelete()">장바구니 비우기</button>`;
     return cartData;

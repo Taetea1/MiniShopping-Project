@@ -59,8 +59,8 @@
   align-items: center;
 }
 .main-wrap {
-  width: 100%;
-  margin-top: 150px;
+  width: fit-content;
+  margin: 150px auto 0 auto;
 }
 
 /* 시작 */
@@ -258,6 +258,9 @@ li div {
     top: 84px;
     padding: 15px;
   }
+  li div {
+    margin: 0 12px;
+  }
 }
 @media screen and (max-width: 650px) {
   .main-wrap {
@@ -299,5 +302,8 @@ li div {
   .on {
     top: 64px;
     padding: 10px;
+  }
+  li div {
+    margin: 0 8px;
   }
 }

@@ -30,7 +30,7 @@ const getInfo = () => {
             <div class="price">${x.price}원</div>
             <div>
             <button class="btn2" onclick="checkAlert()">장바구니</button>
-            <button class="btn2" onclick="checkAlert2()">구매하기</button>
+            <button class="btn2" onclick="readyalert('구매하기')">구매하기</button>
             </div>
           </div>
       </div>`;

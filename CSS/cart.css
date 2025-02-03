@@ -155,11 +155,11 @@
 }
 .itemimg {
   width: 100%;
-  height: auto;
+  height: 150px;
   max-width: 700px;
+  object-fit: contain;
 }
 .imgbox {
-  width: 40%;
   margin: auto;
 }
 .textbox {
