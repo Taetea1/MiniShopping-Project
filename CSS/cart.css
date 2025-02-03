@@ -140,6 +140,12 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.flexbox2:hover {
+  .itemimg {
+    transition: 0.5s ease-in-out;
+    transform: scale(1.1);
+  }
+}
 .flexbox2-2 {
   display: flex;
   width: 90%;

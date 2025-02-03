@@ -49,17 +49,17 @@ const getcartInfo = () => {
       const amountbox = document.querySelector(`.amountbox${x.id}`);
       if (x.amount <= 1) {
         amountbox.innerHTML = `<button class="minus" onclick="subCount(event, ${x.id})" disabled>-</button>
-        <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
+        <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" onclick="stopPro(event)"/>
         <button class="plus" onclick="addCount(event, ${x.id})">+</button>
         <div class="abox"><div id="amountinfo${x.id}" class="amountinfo"></div></div>`;
       } else if (x.amount >= 55) {
         amountbox.innerHTML = `<button class="minus" onclick="subCount(event, ${x.id})">-</button>
-        <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
+        <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" onclick="stopPro(event)" />
         <button class="plus" onclick="addCount(event, ${x.id})" disabled>+</button>
         <div class="abox"><div id="amountinfo${x.id}" class="amountinfo"></div></div>`;
       } else {
         amountbox.innerHTML = `<button class="minus" onclick="subCount(event, ${x.id})">-</button>
-        <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" />
+        <input class="amount amount${x.id}" type="number" name="amounts" value=${x.amount} onkeyup="enterkey(${x.id});" onChange="changeAmount(${x.id})" onclick="stopPro(event)" />
         <button class="plus" onclick="addCount(event, ${x.id})">+</button>
         <div class="abox"><div id="amountinfo${x.id}" class="amountinfo"></div></div>`;
       }
@@ -86,6 +86,11 @@ const getcartInfo = () => {
 };
 
 const cartInfo = getcartInfo();
+
+const stopPro = (event) => {
+  // 이벤트 전파를 막음
+  event.stopPropagation();
+};
 
 // input에 숫자가 바뀌면
 const changeAmount = (id) => {

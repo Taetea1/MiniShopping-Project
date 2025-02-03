@@ -218,11 +218,6 @@ li div {
   z-index: 998;
 }
 
-/* #footer-container {
-  position: relative;
-  transform: translateY(-100%);
-} */
-
 @media screen and (max-width: 1200px) {
   .menu {
     grid-template-columns: repeat(4, 1fr);
