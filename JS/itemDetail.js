@@ -28,6 +28,8 @@ const getInfo = () => {
             <div class="title2">${x.name}</div>
             <div class="content">${x.content}</div>
             <div class="price">${x.price}원</div>
+            <hr>
+            <div class="fontchange">이 상품은 내일 도착, 무료배송 내일(화) 2/4 도착 보장(3시간 18분 내 주문 시 / 서울⋅경기 기준) 무료배송</div>
             <div>
             <button class="btn2" onclick="checkAlert()">장바구니</button>
             <button class="btn2" onclick="readyalert('구매하기')">구매하기</button>

@@ -1,9 +1,13 @@
 .title2,
 .content,
-.price {
+.price,
+.fontchange {
   font-family: "Gowun Dodum", serif;
   font-weight: 500;
   font-style: normal;
+}
+.fontchange {
+  margin-bottom: 5px;
 }
 
 /* 헤더 */
@@ -99,6 +103,7 @@
 }
 .flexbox2 {
   margin: auto;
+  padding: 0 10px;
 }
 
 .content {
