@@ -5,7 +5,7 @@
 > 2. [시연 영상](#시연-영상)
 > 3. [소개](#소개)
 > 4. [주요 기능](#주요-기능)
-> 5. [사용된 라이브러리 및 API](#사용된-라이브러리-및-api)
+> 5. [사용된 라이브러리](#사용된-라이브러리)
 
 </br>
 
@@ -16,7 +16,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 <img src="https://img.shields.io/badge/css3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" />
 <img src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?&style=for-the-badge&logo=javascript&logoColor=black" />
 ### 개발 환경
-<img src="https://img.shields.io/badge/visual%20studio%20code-%23007ACC.svg?&style=for-the-badge&logo=visual%20studio%20code&logoColor=white" /> <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" /> <img src="https://img.shields.io/badge/slack-%234A154B.svg?&style=for-the-badge&logo=slack&logoColor=white" />
+<img src="https://img.shields.io/badge/visual%20studio%20code-%23007ACC.svg?&style=for-the-badge&logo=visual%20studio%20code&logoColor=white" /> <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />
 
 
 ## 시연 영상
@@ -43,7 +43,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 </br>
 
-## 사용된 라이브러리 및 API
+## 사용된 라이브러리
 ### 라이브러리
 - [SweetAlert2](https://sweetalert2.github.io/)
   - 모던한 디자인의 알림창을 제공하는 JavaScript 라이브러리
