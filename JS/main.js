@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Top 버튼 특정 스크롤 높이에서만 보이기
   window.addEventListener("scroll", function () {
     const topBtn = document.getElementById("top-btn");
-    if (window.scrollY > 100) {
+    if (window.scrollY > 500) {
       topBtn.style.display = "block";
     } else {
       topBtn.style.display = "none";

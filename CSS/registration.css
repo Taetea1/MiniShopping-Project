@@ -63,7 +63,10 @@
 /* 장바구니 숫자 */
 .count {
   color: white;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 등록하는 부분 + 등록된 상품들 */

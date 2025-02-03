@@ -15,61 +15,64 @@
 </head>
 
 <body>
-  <!-- 헤더 -->
-  <header class="header shadow">
-    <div class="header-box">
-      <a href="http://127.0.0.1:5500/page/main.html" class="iconbox">
-        <img src="../image/로고.png" alt="홈" title="홈" class="home">
-      </a>
+  <div class="bodybox">
+    <!-- 헤더 -->
+    <header class="header shadow">
+      <div class="header-box">
+        <a href="http://127.0.0.1:5500/page/main.html" class="iconbox">
+          <img src="../image/로고.png" alt="홈" title="홈" class="home">
+        </a>
 
-      <div class="controlBtn">
-        <div class="iconbox"><img src="../image/loginIcon.png" alt="loginIcon" title="로그인" class="login"
-            onclick="readyalert('로그인')" /></div>
-        <div class="countwrap iconbox">
-          <img src="../image/장바구니.png" alt="cartIcon" title="장바구니" class="cart"
-            onclick="location.href='http://127.0.0.1:5500/page/cart.html'" />
-          <div class="countbox">
-            <div class="count"></div>
+        <div class="controlBtn">
+          <div class="iconbox"><img src="../image/loginIcon.png" alt="loginIcon" title="로그인" class="login"
+              onclick="readyalert('로그인')" /></div>
+          <div class="countwrap iconbox">
+            <img src="../image/장바구니.png" alt="cartIcon" title="장바구니" class="cart"
+              onclick="location.href='http://127.0.0.1:5500/page/cart.html'" />
+            <div class="countbox">
+              <div class="count"></div>
+            </div>
           </div>
+
         </div>
 
       </div>
-
-    </div>
-  </header>
+    </header>
 
 
-  <!-- 네비게이션바 + 등록된 아이템들 -->
-  <main class="main-wrap">
+    <!-- 네비게이션바 + 등록된 아이템들 -->
+    <main class="main-wrap">
 
-    <nav>
-      <ul class="menus navbar">
-        <li>
-          <div class="all checked" data-hover="All" onclick="changeType('all')">All</div>
-        </li>
-        <li>
-          <div class="bed" data-hover="Bed" onclick="changeType('bed')">Bed</div>
-        </li>
-        <li>
-          <div class="desk" data-hover="Desk" onclick="changeType('desk')">Desk</div>
-        </li>
-        <li>
-          <div class="lighting" data-hover="Lighting" onclick="changeType('lighting')">Lighting</div>
-        </li>
-        <li>
-          <div class="ornament" data-hover="Ornament" onclick="changeType('ornament')">Ornament</div>
-        </li>
-      </ul>
-    </nav>
+      <nav>
+        <ul class="menus navbar">
+          <li>
+            <div class="all checked" data-hover="All" onclick="changeType('all')">All</div>
+          </li>
+          <li>
+            <div class="bed" data-hover="Bed" onclick="changeType('bed')">Bed</div>
+          </li>
+          <li>
+            <div class="desk" data-hover="Desk" onclick="changeType('desk')">Desk</div>
+          </li>
+          <li>
+            <div class="lighting" data-hover="Lighting" onclick="changeType('lighting')">Lighting</div>
+          </li>
+          <li>
+            <div class="ornament" data-hover="Ornament" onclick="changeType('ornament')">Ornament</div>
+          </li>
+        </ul>
+      </nav>
 
-    <section class="menu">
-      <!-- JS로 요소 동적 추가 -->
-    </section>
+      <section class="menu">
+        <!-- JS로 요소 동적 추가 -->
+      </section>
 
-  </main>
+    </main>
 
-  <!-- 풋터 -->
-  <div id="footer-container"></div>
+    <!-- 풋터 -->
+    <div id="footer-container"></div>
+  </div>
+
 
   <!-- 탑버튼 -->
   <img src="../image/topBtn.png" alt="topIcon" title="탑" id="top-btn" />

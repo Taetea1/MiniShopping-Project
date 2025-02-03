@@ -57,9 +57,11 @@
 }
 .count {
   color: white;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .iconimg {
   width: 90px;
   padding: 20px;
@@ -104,6 +106,7 @@
 }
 .main-wrap {
   margin-top: 150px;
+  flex: 1;
 }
 
 .subtitle {

@@ -51,7 +51,10 @@
 }
 .count {
   color: white;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .iconbox {
   height: 100%;
@@ -61,6 +64,7 @@
 .main-wrap {
   width: fit-content;
   margin: 150px auto 0 auto;
+  flex: 1;
 }
 
 /* 시작 */
@@ -209,6 +213,11 @@ li div {
   position: fixed;
   z-index: 998;
 }
+
+/* #footer-container {
+  position: relative;
+  transform: translateY(-100%);
+} */
 
 @media screen and (max-width: 1200px) {
   .menu {
