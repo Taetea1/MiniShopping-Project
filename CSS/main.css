@@ -163,13 +163,14 @@ li div {
 /* 상품 이미지 크기조절 */
 .imgbox {
   border-radius: 8px;
-  width: 200px;
-  margin: 0 auto;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 .imgs {
-  width: 200px;
-  height: 200px;
+  width: 100%;
   padding: 40px;
 }
 

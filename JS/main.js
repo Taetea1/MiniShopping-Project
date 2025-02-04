@@ -54,7 +54,7 @@ const getUserInfo = () => {
   }
 };
 
-const userInfo = getUserInfo();
+getUserInfo();
 
 // 좋아요
 const checkFavorite = (event, id) => {
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const navbar = document.querySelector(".navbar");
 const header = document.querySelector(".header");
 window.addEventListener("scroll", function () {
-  if (window.scrollY > 50) {
+  if (window.scrollY > 100) {
     navbar.classList.add("on");
     navbar.classList.add("fix");
     header.classList.remove("shadow");
