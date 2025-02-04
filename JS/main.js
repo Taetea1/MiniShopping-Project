@@ -2,6 +2,41 @@ const datas = document.querySelector(".main-wrap");
 const menu = document.querySelector(".menu");
 let data = [];
 
+// 좋아요에 따라 상품 넣기
+const inputMenu = () => {
+  data.map((x, i) => {
+    if (x.heart === false) {
+      menu.innerHTML += `
+      <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
+        <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
+        <div class="textbox">
+          <div class="textflex">
+            <div class="testname testname${x.id}">${x.name}</div>        
+            <div class="testprice testprice${x.id}">${x.price}원</div>
+          </div>
+            <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
+        </div>
+      </div>
+
+    `;
+    } else {
+      menu.innerHTML += `
+      <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
+        <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
+        <div class="textbox">
+          <div class="textflex">
+            <div class="testname testname${x.id}">${x.name}</div>        
+            <div class="testprice testprice${x.id}">${x.price}</div>
+          </div>
+            <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
+        </div>
+      </div>
+
+    `;
+    }
+  });
+};
+
 //정보 가져오기
 const getUserInfo = () => {
   let userList = JSON.parse(localStorage.getItem("userInfo")) || [];
@@ -19,38 +54,9 @@ const getUserInfo = () => {
   } else {
     // 배열을 빼고 넣어주기
     data.push(...userList);
-    data.map((x, i) => {
-      if (x.heart === false) {
-        menu.innerHTML += `
-        <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
-          <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
-          <div class="textbox">
-            <div class="textflex">
-              <div class="testname testname${x.id}">${x.name}</div>        
-              <div class="testprice testprice${x.id}">${x.price}원</div>
-            </div>
-              <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
-          </div>
-        </div>
-  
-      `;
-      } else {
-        menu.innerHTML += `
-        <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
-          <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
-          <div class="textbox">
-            <div class="textflex">
-              <div class="testname testname${x.id}">${x.name}</div>        
-              <div class="testprice testprice${x.id}">${x.price}</div>
-            </div>
-              <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
-          </div>
-        </div>
-  
-      `;
-      }
-    });
-    return data;
+
+    //상품들 넣어주기
+    inputMenu();
   }
 };
 
@@ -102,37 +108,8 @@ const changeType = (type) => {
   // menu 초기화
   menu.innerHTML = "";
   if (type === "all") {
-    data.map((x, i) => {
-      if (x.heart === false) {
-        menu.innerHTML += `
-        <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
-          <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
-          <div class="textbox">
-            <div class="textflex">
-              <div class="testname testname${x.id}">${x.name}</div>        
-              <div class="testprice testprice${x.id}">${x.price}원</div>
-            </div>
-              <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
-          </div>
-        </div>
-  
-      `;
-      } else {
-        menu.innerHTML += `
-        <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
-          <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
-          <div class="textbox">
-            <div class="textflex">
-              <div class="testname testname${x.id}">${x.name}</div>        
-              <div class="testprice testprice${x.id}">${x.price}</div>
-            </div>
-              <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
-          </div>
-        </div>
-  
-      `;
-      }
-    });
+    // 상품 넣기
+    inputMenu();
   } else {
     // 데이터 처리
     const selectedCategory = data.filter((category) => category.type === type);

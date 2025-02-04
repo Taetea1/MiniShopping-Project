@@ -4,8 +4,9 @@ let queryString = window.location.search;
 //parameter와 value를 분리
 let queryParameterValue = new URLSearchParams(queryString);
 let [key, value] = "";
+let getvalue = "";
 for ([key, value] of queryParameterValue) {
-  console.log(key, value);
+  getvalue = value;
 }
 // 주소받아오기 끝//
 
@@ -20,7 +21,7 @@ const getInfo = () => {
   // 배열을 빼고 넣어주기
   data.push(...userList);
   data.map((x, i) => {
-    if (x.id === value) {
+    if (x.id === getvalue) {
       datas.innerHTML += `
       <div class="text2">
         <div class="imgbox2"><img class="img2" src="${x.img}" alt="선택된이미지" /></div>
@@ -81,7 +82,11 @@ const getCart = () => {
         cartList2[index].amount++;
 
         localStorage.setItem(`cartInfo`, JSON.stringify(cartList2));
-        alreadyCart();
+        Swal.fire({
+          title: "장바구니에 담겼습니다!",
+          text: "장바구니에서 확인해주세요",
+          icon: "success",
+        });
       }
     }
   });
@@ -102,13 +107,5 @@ const checkAlert = () => {
     if (result.isConfirmed) {
       getCart();
     }
-  });
-};
-
-const alreadyCart = () => {
-  Swal.fire({
-    title: "장바구니에 담겼습니다!",
-    text: "장바구니에서 확인해주세요",
-    icon: "success",
   });
 };

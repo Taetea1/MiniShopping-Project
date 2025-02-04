@@ -1,4 +1,4 @@
-// 장바구니 개수
+// 장바구니에 담긴 개수 표시
 const cartCount = () => {
   let count = document.querySelector(".count");
   let countbox = document.querySelector(".countbox");

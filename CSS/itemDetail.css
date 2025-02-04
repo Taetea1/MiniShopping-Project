@@ -94,7 +94,11 @@
 }
 /* 상품 이미지 크기조절 */
 .imgbox2 {
-  margin: 0 auto;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 .img2 {
   width: 100%;

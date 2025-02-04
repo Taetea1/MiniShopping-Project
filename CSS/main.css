@@ -77,7 +77,7 @@
   margin-bottom: 10px;
 }
 
-/* 시작 */
+/* 메뉴바 시작 */
 .menus {
   display: flex;
   justify-content: center;
@@ -131,7 +131,7 @@ li div {
   content: attr(data-hover);
 }
 
-/* 끝 */
+/* 메뉴바 끝 */
 
 .menu {
   margin: 0 auto;
