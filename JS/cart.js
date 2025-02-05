@@ -23,7 +23,7 @@ const getcartInfo = () => {
 
     // 배열을 빼고 넣어주기
     cartData.push(...cartList);
-    cartData.map((x, i) => {
+    cartData.map((x) => {
       datas.innerHTML += `
       <div id=id${x.id} class="flexbox2" onclick="moveDetailPage(${x.id})">
         <div class="flexbox2-2">
@@ -96,7 +96,6 @@ const stopPro = (event) => {
 // input에 숫자가 바뀌면
 const changeAmount = (id) => {
   let num = document.querySelector(`.amount${id}`);
-  console.log(num.value);
   let cartamount = JSON.parse(localStorage.getItem("cartInfo")) || [];
   let index = cartamount.findIndex((obj) => obj.id === String(id));
 
@@ -133,6 +132,7 @@ const changeAmount = (id) => {
   } else if (Number(num.value) === 0 || num.value === "") {
     // 0이나 빈값일시 원래 수량
     num.value = cartamount[index].amount;
+    document.querySelector(`.minus${id}`).disabled = false;
   }
 };
 
@@ -143,6 +143,11 @@ const enterkey = (id) => {
   let cartamount = JSON.parse(localStorage.getItem("cartInfo")) || [];
   let index = cartamount.findIndex((obj) => obj.id === String(id));
 
+  if (num.value <= 1) {
+    document.querySelector(`.minus${id}`).disabled = true;
+  } else {
+    document.querySelector(`.minus${id}`).disabled = false;
+  }
   // 0보다 작거나 크면 실행
   if (num.value < 0) {
     num.value = cartamount[index].amount;
@@ -154,9 +159,6 @@ const enterkey = (id) => {
     document.querySelector(`.minus${id}`).disabled = false;
     document.querySelector(`.plus${id}`).disabled = true;
   } else if (num.value < 55) {
-    if (num.value === 1) {
-      document.querySelector(`.minus${id}`).disabled = true;
-    }
     amountinfo.innerHTML = ``;
     document.querySelector(`.plus${id}`).disabled = false;
   }

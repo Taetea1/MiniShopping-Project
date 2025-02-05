@@ -20,7 +20,7 @@ const getInfo = () => {
 
   // 배열을 빼고 넣어주기
   data.push(...userList);
-  data.map((x, i) => {
+  data.map((x) => {
     if (x.id === getvalue) {
       datas.innerHTML += `
       <div class="text2">
@@ -79,14 +79,24 @@ const getCart = () => {
         // 장바구니에 이미 존재하는 경우
         let cartList2 = JSON.parse(localStorage.getItem("cartInfo")) || [];
         let index = cartList2.findIndex((obj) => obj.id === `${value}`);
-        cartList2[index].amount++;
 
-        localStorage.setItem(`cartInfo`, JSON.stringify(cartList2));
-        Swal.fire({
-          title: "장바구니에 담겼습니다!",
-          text: "장바구니에서 확인해주세요",
-          icon: "success",
-        });
+        // 최대수량 55보다 작으면 실행
+        if (cartList2[index].amount < 55) {
+          cartList2[index].amount++;
+
+          localStorage.setItem(`cartInfo`, JSON.stringify(cartList2));
+          Swal.fire({
+            title: "장바구니에 담겼습니다!",
+            text: "장바구니에서 확인해주세요",
+            icon: "success",
+          });
+        } else {
+          Swal.fire({
+            title: "최대수량을 넘겼습니다!",
+            text: "장바구니에서 확인해주세요",
+            icon: "error",
+          });
+        }
       }
     }
   });
