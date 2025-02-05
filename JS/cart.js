@@ -153,10 +153,10 @@ const enterkey = (id) => {
     amountinfo.innerHTML = `최대 구매 가능한 수량으로 변경됐습니다.`;
     document.querySelector(`.minus${id}`).disabled = false;
     document.querySelector(`.plus${id}`).disabled = true;
-
-    // 값이 바뀌었으므로 changeAmount 호출
-    changeAmount(id);
   } else if (num.value < 55) {
+    if (num.value === 1) {
+      document.querySelector(`.minus${id}`).disabled = true;
+    }
     amountinfo.innerHTML = ``;
     document.querySelector(`.plus${id}`).disabled = false;
   }
@@ -239,6 +239,10 @@ const subCount = (id) => {
   if (letamount.value === "") {
     letamount.value = cartamount[index].amount;
   } else if (cartamount[index].amount >= 1) {
+    // 1일시 -버튼 비활성화
+    if (cartamount[index].amount - 1 <= 1) {
+      document.querySelector(`.minus${id}`).disabled = true;
+    }
     // 수량변경
     let num = --document.querySelector(`.amount${id}`).value;
 
@@ -247,10 +251,6 @@ const subCount = (id) => {
     cartData = [];
     cartData.push(...cartamount);
 
-    // 1일시 -버튼 비활성화
-    if (cartamount[index].amount === 1) {
-      document.querySelector(`.minus${id}`).disabled = true;
-    }
     if (cartamount[index].amount < 55) {
       document.querySelector(`.plus${id}`).disabled = false;
     }
