@@ -197,7 +197,7 @@ table thead {
   border-radius: 6px;
   box-shadow: 1px 2px 2px 2px rgb(240, 240, 240);
 }
-/* 수정, 삭제 */
+/* 수정, 삭제, 엑셀다운 */
 .changebtn {
   padding: 10px 20px;
   margin: 2px;
@@ -223,6 +223,13 @@ table thead {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* 엑셀 다운받기 버튼 */
+.execelbtn {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 860px) {
