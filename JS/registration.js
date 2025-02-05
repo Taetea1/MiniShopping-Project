@@ -403,43 +403,43 @@ const removeData = (id) => {
 
 // 엑셀 다운버튼 클릭시
 document.getElementById("excelBtn").addEventListener("click", () => {
-  let filename = "ListFile.csv";
+  let filename = "ItemList.csv";
   getCSV(filename);
 });
 
 // csv생성
 const getCSV = (filename) => {
-  var csv = [];
-  var row = [];
+  let row = [];
+  let csvdata = [];
 
   row.push("상품명", "가격", "상세 내용");
-
-  csv.push(row.join(","));
+  csvdata.push(row.join(","));
 
   //데이터 배열
   data.map((x) => {
     row = [];
     row.push(`"${x.name}"`, `"${x.price}"`, `"${x.content}"`);
-    csv.push(row.join(","));
+    csvdata.push(row.join(","));
   });
 
-  downloadCSV(csv.join("\n"), filename);
+  downCSV(csvdata.join("\n"), filename);
 };
 
 // csv 다운
-const downloadCSV = (csv, filename) => {
-  var csvFile;
-  var downloadLink;
-
-  //한글 처리를 해주기 위해 BOM 추가하기
+const downCSV = (csv, filename) => {
+  // 한글 처리
   const BOM = "\uFEFF";
-  csv = BOM + csv;
+  const csvBOM = BOM + csv;
 
-  csvFile = new Blob([csv], { type: "text/csv" });
-  downloadLink = document.createElement("a");
-  downloadLink.download = filename;
-  downloadLink.href = window.URL.createObjectURL(csvFile);
-  downloadLink.style.display = "none";
-  document.body.appendChild(downloadLink);
-  downloadLink.click();
+  const csvFile = new Blob([csvBOM], { type: "text/csv" });
+
+  const downlink = document.createElement("a");
+  downlink.download = filename;
+  downlink.href = window.URL.createObjectURL(csvFile);
+
+  // 다운로드 링크 클릭(DOM에 추가 없이)
+  downlink.click();
+
+  // url 해제
+  window.URL.revokeObjectURL(url);
 };
