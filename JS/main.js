@@ -1,12 +1,72 @@
 const datas = document.querySelector(".main-wrap");
 const menu = document.querySelector(".menu");
 let data = [];
+let datalength;
+let type = "all";
+
+// 한페이지에 보여줄 컨텐츠 개수
+const conCount = 6;
+
+// 보여줄 페이지네이션 개수
+const PAGE = 5;
+
+// 총페이지개수
+let totalPage;
+
+// 현재페이지
+let nowPage = 1;
+let first = 1;
+let last = PAGE;
+let pageGroup;
 
 // 좋아요에 따라 상품 넣기
 const inputMenu = () => {
+  menu.innerHTML = "";
+
   data.map((x, i) => {
-    if (x.heart === false) {
-      menu.innerHTML += `
+    if (i < nowPage * conCount && i >= (nowPage - 1) * conCount) {
+      if (x.heart === false) {
+        menu.innerHTML += `
+            <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
+              <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
+              <div class="textbox">
+                <div class="textflex">
+                  <div class="testname testname${x.id}">${x.name}</div>        
+                  <div class="testprice testprice${x.id}">${x.price}원</div>
+                </div>
+                  <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
+              </div>
+            </div>
+      
+          `;
+      } else {
+        menu.innerHTML += `
+            <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
+              <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
+              <div class="textbox">
+                <div class="textflex">
+                  <div class="testname testname${x.id}">${x.name}</div>        
+                  <div class="testprice testprice${x.id}">${x.price}</div>
+                </div>
+                  <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
+              </div>
+            </div>
+      
+          `;
+      }
+    }
+  });
+};
+
+const inputCateMenu = (types) => {
+  menu.innerHTML = "";
+  // 데이터 처리
+  const selectedCategory = data.filter((category) => category.type === types);
+  datalength = selectedCategory.length;
+  selectedCategory.map((x, i) => {
+    if (i < nowPage * conCount && i >= (nowPage - 1) * conCount) {
+      if (x.heart === false) {
+        menu.innerHTML += `
       <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
         <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
         <div class="textbox">
@@ -19,8 +79,8 @@ const inputMenu = () => {
       </div>
 
     `;
-    } else {
-      menu.innerHTML += `
+      } else {
+        menu.innerHTML += `
       <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
         <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
         <div class="textbox">
@@ -33,6 +93,7 @@ const inputMenu = () => {
       </div>
 
     `;
+      }
     }
   });
 };
@@ -54,13 +115,110 @@ const getUserInfo = () => {
   } else {
     // 배열을 빼고 넣어주기
     data.push(...userList);
-
+    datalength = data.length;
     //상품들 넣어주기
     inputMenu();
   }
 };
 
 getUserInfo();
+
+// 페이지 번호 버튼 동적 생성
+const numberWrap = document.querySelector(".numberWrap");
+
+const setPageBtn = () => {
+  // 화면에 보여질 페이지 그룹
+  pageGroup = Math.ceil(nowPage / PAGE);
+  totalPage = Math.ceil(datalength / conCount);
+  first = (pageGroup - 1) * PAGE + 1;
+  last = pageGroup * PAGE;
+  if (last > totalPage) {
+    last = totalPage;
+  }
+
+  numberWrap.innerHTML = "";
+  for (let i = first; i <= last; i++) {
+    numberWrap.innerHTML += `<span class="number-btn">${i}</span>`;
+    if (i === nowPage) {
+      document.querySelector(".number-btn").classList.add("active");
+    }
+  }
+  // 버튼 비활성화/활성화
+  if (totalPage <= last) {
+    document.querySelector(".next-btn").style.display = "none";
+    document.querySelector(".next").style.display = "none";
+  } else {
+    document.querySelector(".next-btn").style.display = "block";
+    document.querySelector(".next").style.display = "block";
+  }
+  if (first <= 1) {
+    document.querySelector(".prev-btn").style.display = "none";
+    document.querySelector(".prev").style.display = "none";
+  } else {
+    document.querySelector(".prev-btn").style.display = "block";
+    document.querySelector(".prev").style.display = "block";
+  }
+  // 클릭시 해당 버튼 활성화 표시
+  document.querySelectorAll(".number-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      nowPage = btn.innerText;
+
+      document.querySelector(".active").classList.remove("active");
+      btn.classList.add("active");
+      if (type === "all") {
+        inputMenu();
+      } else {
+        inputCateMenu(type);
+      }
+    });
+  });
+};
+setPageBtn();
+// 뒤
+document.querySelector(".next-btn").addEventListener("click", () => {
+  if (first + PAGE <= totalPage) {
+    nowPage = first + PAGE;
+  }
+  setPageBtn();
+  if (type === "all") {
+    inputMenu();
+  } else {
+    inputCateMenu(type);
+  }
+});
+// 앞
+document.querySelector(".prev-btn").addEventListener("click", () => {
+  if (first - PAGE > 0) {
+    nowPage = first - PAGE;
+  }
+  setPageBtn();
+  if (type === "all") {
+    inputMenu();
+  } else {
+    inputCateMenu(type);
+  }
+});
+
+// 맨앞/맨뒤
+document.querySelector(".prev").addEventListener("click", () => {
+  nowPage = 1;
+  setPageBtn();
+  if (type === "all") {
+    inputMenu();
+  } else {
+    inputCateMenu(type);
+  }
+});
+document.querySelector(".next").addEventListener("click", () => {
+  nowPage = totalPage;
+
+  setPageBtn();
+  if (type === "all") {
+    inputMenu();
+  } else {
+    inputCateMenu(type);
+  }
+});
 
 // 좋아요
 const checkFavorite = (event, id) => {
@@ -98,52 +256,34 @@ const moveDetailPage = (id) => {
 };
 
 // nav 클릭시 변경 함수
-const changeType = (type) => {
+const changeType = (types) => {
+  type = types;
   // 활성화된 메뉴
   let nowactive = document.querySelector(".checked");
   nowactive.classList.remove("checked");
-  let nextactive = document.querySelector(`.${type}`);
+  let nextactive = document.querySelector(`.${types}`);
   nextactive.classList.add("checked");
 
   // menu 초기화
   menu.innerHTML = "";
-  if (type === "all") {
+  if (types === "all") {
+    datalength = data.length;
     // 상품 넣기
     inputMenu();
+    setPageBtn();
   } else {
-    // 데이터 처리
-    const selectedCategory = data.filter((category) => category.type === type);
-    selectedCategory.map((x) => {
-      if (x.heart === false) {
-        menu.innerHTML += `
-      <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
-        <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
-        <div class="textbox">
-          <div class="textflex">
-            <div class="testname testname${x.id}">${x.name}</div>        
-            <div class="testprice testprice${x.id}">${x.price}원</div>
-          </div>
-            <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
-        </div>
-      </div>
-
-    `;
-      } else {
-        menu.innerHTML += `
-      <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
-        <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
-        <div class="textbox">
-          <div class="textflex">
-            <div class="testname testname${x.id}">${x.name}</div>        
-            <div class="testprice testprice${x.id}">${x.price}</div>
-          </div>
-            <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
-        </div>
-      </div>
-
-    `;
+    nowPage = 1;
+    first = 1;
+    last = PAGE;
+    document.querySelectorAll(".number-btn").forEach((btn) => {
+      if (btn.innerText === "1") {
+        document.querySelector(".active").classList.remove("active");
+        btn.classList.add("active");
       }
     });
+
+    inputCateMenu(type);
+    setPageBtn();
   }
 };
 

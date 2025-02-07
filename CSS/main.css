@@ -322,3 +322,23 @@ li div {
     margin: 0 8px;
   }
 }
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  button {
+    border: none;
+    background-color: #fdf5e6;
+    cursor: pointer;
+  }
+}
+.number-btn {
+  margin: 5px;
+  cursor: pointer;
+}
+.active {
+  color: #deb887;
+  text-decoration: underline;
+  text-decoration-color: #deb887;
+  text-decoration-thickness: 2px;
+}
