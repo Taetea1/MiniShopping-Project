@@ -332,11 +332,13 @@ li div {
     border: none;
     background-color: #fdf5e6;
     cursor: pointer;
+    font-size: 15px;
   }
 }
 .number-btn {
   margin: 5px;
   cursor: pointer;
+  font-size: 20px;
 }
 .active {
   color: #deb887;

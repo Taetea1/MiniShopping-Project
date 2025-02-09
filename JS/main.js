@@ -122,9 +122,9 @@ const setPageBtn = () => {
 
   numberWrap.innerHTML = "";
   for (let i = first; i <= last; i++) {
-    numberWrap.innerHTML += `<span class="number-btn">${i}</span>`;
+    numberWrap.innerHTML += `<span class="number-btn number-btn${i}">${i}</span>`;
     if (i === nowPage) {
-      document.querySelector(".number-btn").classList.add("active");
+      document.querySelector(`.number-btn${i}`).classList.add("active");
     }
   }
   // 버튼 비활성화/활성화
@@ -236,35 +236,37 @@ const moveDetailPage = (id) => {
 
 // nav 클릭시 변경 함수
 const changeType = (types) => {
-  // 타입 업데이트
-  type = types;
+  if (type !== types) {
+    // 타입 업데이트
+    type = types;
 
-  // 활성화된 메뉴
-  let nowactive = document.querySelector(".checked");
-  nowactive.classList.remove("checked");
-  let nextactive = document.querySelector(`.${types}`);
-  nextactive.classList.add("checked");
+    // 활성화된 메뉴
+    let nowactive = document.querySelector(".checked");
+    nowactive.classList.remove("checked");
+    let nextactive = document.querySelector(`.${types}`);
+    nextactive.classList.add("checked");
 
-  // menu 초기화
-  menu.innerHTML = "";
-  if (types === "all") {
-    datalength = data.length;
-    // 상품 넣기
-    inputMenu();
-    setPageBtn();
-  } else {
-    nowPage = 1;
-    first = 1;
-    last = PAGE;
-    document.querySelectorAll(".number-btn").forEach((btn) => {
-      if (btn.innerText === "1") {
-        document.querySelector(".active").classList.remove("active");
-        btn.classList.add("active");
-      }
-    });
+    // menu 초기화
+    menu.innerHTML = "";
+    if (types === "all") {
+      datalength = data.length;
+      // 상품 넣기
+      inputMenu();
+      setPageBtn();
+    } else {
+      nowPage = 1;
+      first = 1;
+      last = PAGE;
+      document.querySelectorAll(".number-btn").forEach((btn) => {
+        if (btn.innerText === "1") {
+          document.querySelector(".active").classList.remove("active");
+          btn.classList.add("active");
+        }
+      });
 
-    inputCateMenu(type);
-    setPageBtn();
+      inputCateMenu(type);
+      setPageBtn();
+    }
   }
 };
 
