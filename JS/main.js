@@ -3,7 +3,7 @@ const menu = document.querySelector(".menu");
 let data = [];
 let datalength;
 let type = "all";
-
+let heartimg;
 // 한페이지에 보여줄 컨텐츠 개수
 const conCount = 6;
 
@@ -25,34 +25,26 @@ const inputMenu = () => {
 
   data.map((x, i) => {
     if (i < nowPage * conCount && i >= (nowPage - 1) * conCount) {
+      menu.innerHTML += `
+      <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
+        <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
+        <div class="textbox">
+          <div class="textflex">
+            <div class="testname testname${x.id}">${x.name}</div>        
+            <div class="testprice testprice${x.id}">${x.price}원</div>
+          </div>
+            <div class="happy happy${x.id}"><img class="happyimg happyimg${x.id}" src="" alt="" onclick="checkFavorite(event,${x.id})" /></div>
+        </div>
+      </div>`;
+
+      heartimg = document.querySelector(`.happyimg${x.id}`);
+
       if (x.heart === false) {
-        menu.innerHTML += `
-            <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
-              <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
-              <div class="textbox">
-                <div class="textflex">
-                  <div class="testname testname${x.id}">${x.name}</div>        
-                  <div class="testprice testprice${x.id}">${x.price}원</div>
-                </div>
-                  <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
-              </div>
-            </div>
-      
-          `;
+        heartimg.src = "../image/favoritebin.png";
+        heartimg.alt = "안좋아요";
       } else {
-        menu.innerHTML += `
-            <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
-              <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
-              <div class="textbox">
-                <div class="textflex">
-                  <div class="testname testname${x.id}">${x.name}</div>        
-                  <div class="testprice testprice${x.id}">${x.price}</div>
-                </div>
-                  <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
-              </div>
-            </div>
-      
-          `;
+        heartimg.src = "../image/favorite.png";
+        heartimg.alt = "좋아요";
       }
     }
   });
@@ -65,8 +57,7 @@ const inputCateMenu = (types) => {
   datalength = selectedCategory.length;
   selectedCategory.map((x, i) => {
     if (i < nowPage * conCount && i >= (nowPage - 1) * conCount) {
-      if (x.heart === false) {
-        menu.innerHTML += `
+      menu.innerHTML += `
       <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
         <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
         <div class="textbox">
@@ -74,25 +65,18 @@ const inputCateMenu = (types) => {
             <div class="testname testname${x.id}">${x.name}</div>        
             <div class="testprice testprice${x.id}">${x.price}원</div>
           </div>
-            <div class="happy happy${x.id}"><img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${x.id})" /></div>
+            <div class="happy happy${x.id}"><img class="happyimg happyimg${x.id}" src="" alt="" onclick="checkFavorite(event,${x.id})" /></div>
         </div>
-      </div>
+      </div>`;
 
-    `;
+      heartimg = document.querySelector(`.happyimg${x.id}`);
+
+      if (x.heart === false) {
+        heartimg.src = "../image/favoritebin.png";
+        heartimg.alt = "안좋아요";
       } else {
-        menu.innerHTML += `
-      <div id=id${x.id} class="box" onclick="moveDetailPage(${x.id})">
-        <div class="imgwrap"><div class="imgbox"><img class="imgs" src="${x.img}" alt="상품이미지" /></div></div>
-        <div class="textbox">
-          <div class="textflex">
-            <div class="testname testname${x.id}">${x.name}</div>        
-            <div class="testprice testprice${x.id}">${x.price}</div>
-          </div>
-            <div class="happy happy${x.id}"><img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${x.id})" /></div>
-        </div>
-      </div>
-
-    `;
+        heartimg.src = "../image/favorite.png";
+        heartimg.alt = "좋아요";
       }
     }
   });
@@ -224,25 +208,20 @@ document.querySelector(".next").addEventListener("click", () => {
 const checkFavorite = (event, id) => {
   // 이벤트 전파를 막음
   event.stopPropagation();
-  const heart = document.querySelector(`.happy${id}`);
-  heart.innerHTML = `<img class="happyimg" src="../image/favorite.png" alt="좋아요" onclick="checkFavoriteBin(event,${id})" />`;
 
+  heartimg = document.querySelector(`.happyimg${id}`);
   let cList = JSON.parse(localStorage.getItem("userInfo"));
   let index = cList.findIndex((obj) => obj.id === `${id}`);
-  cList[index].heart = true;
 
-  localStorage.setItem(`userInfo`, JSON.stringify(cList));
-  data = [];
-  data.push(...cList);
-};
-const checkFavoriteBin = (event, id) => {
-  // 이벤트 전파를 막음
-  event.stopPropagation();
-  const heart = document.querySelector(`.happy${id}`);
-  heart.innerHTML = `<img class="happyimg" src="../image/favoritebin.png" alt="안좋아요" onclick="checkFavorite(event,${id})" />`;
-  let cList = JSON.parse(localStorage.getItem("userInfo"));
-  let index = cList.findIndex((obj) => obj.id === `${id}`);
-  cList[index].heart = false;
+  if (heartimg.alt === "안좋아요") {
+    heartimg.src = `../image/favorite.png`;
+    heartimg.alt = "좋아요";
+    cList[index].heart = true;
+  } else {
+    heartimg.src = `../image/favoritebin.png`;
+    heartimg.alt = "안좋아요";
+    cList[index].heart = false;
+  }
 
   localStorage.setItem(`userInfo`, JSON.stringify(cList));
   data = [];
@@ -257,7 +236,9 @@ const moveDetailPage = (id) => {
 
 // nav 클릭시 변경 함수
 const changeType = (types) => {
+  // 타입 업데이트
   type = types;
+
   // 활성화된 메뉴
   let nowactive = document.querySelector(".checked");
   nowactive.classList.remove("checked");
@@ -310,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const navbar = document.querySelector(".navbar");
 const header = document.querySelector(".header");
 window.addEventListener("scroll", function () {
-  if (window.scrollY > 100) {
+  if (window.scrollY > 300) {
     navbar.classList.add("on");
     navbar.classList.add("fix");
     header.classList.remove("shadow");

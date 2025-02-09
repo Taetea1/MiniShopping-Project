@@ -170,8 +170,7 @@ li div {
   overflow: hidden;
 }
 .imgs {
-  width: 100%;
-  padding: 40px;
+  width: 70%;
 }
 
 .box {
@@ -278,6 +277,9 @@ li div {
   }
 }
 @media screen and (max-width: 650px) {
+  .imgbox {
+    height: 220px;
+  }
   .main-wrap {
     margin-top: 100px;
   }
