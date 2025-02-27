@@ -5,10 +5,10 @@ let datalength;
 let type = "all";
 let heartimg;
 // 한페이지에 보여줄 컨텐츠 개수
-const conCount = 6;
+const conCount = 10;
 
 // 보여줄 페이지네이션 개수
-const PAGE = 5;
+const PAGE = 4;
 
 // 총페이지개수
 let totalPage;
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Top 버튼 특정 스크롤 높이에서만 보이기
   window.addEventListener("scroll", function () {
     const topBtn = document.getElementById("top-btn");
-    if (window.scrollY > 500) {
+    if (window.scrollY > 100) {
       topBtn.style.display = "block";
     } else {
       topBtn.style.display = "none";
