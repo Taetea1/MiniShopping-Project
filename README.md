@@ -42,7 +42,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 ### 관리자페이지
 
 1. **상품 등록**</br>
-   ![Image](https://github.com/user-attachments/assets/29c46470-8ed5-44fd-9236-b7af719de0bd)
+   ![Image](https://github.com/user-attachments/assets/4243ea28-5585-4e8f-8879-3d6e0e09f20b)
 - 실시간으로 id 중복 확인
 - 선택한 타입에 맞게 이미지 랜덤 등록
 - 사용자가 입력한 데이터가 조건에 맞을 경우 등록 버튼 활성화
@@ -51,7 +51,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 </br>
 
 2. **상품 수정**</br>
-   ![Image](https://github.com/user-attachments/assets/37eea6b2-c0b6-49f6-ab3c-955d8b88157f)
+ ![Image](https://github.com/user-attachments/assets/2b8a29e7-0cf2-4e58-91f0-dcd9ab5d9507)
 - 수정시 해당 id를 통해 원하는 데이터만 수정하여 반영</br>
 
 </br>
@@ -64,7 +64,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 </br>
 
 4. **엑셀 다운로드**</br>
-   ![Image](https://github.com/user-attachments/assets/8de9ab2e-2bc8-4908-9ff4-275d36e21293)
+  ![Image](https://github.com/user-attachments/assets/c231c9df-53cd-4110-aaea-3dbe196bcb0d)
 - 엑셀 다운로드 버튼 클릭시 등록한 데이터들을 엑셀로 다운</br>
   <br>
 
@@ -76,7 +76,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 - 로컬스토리지에서 카테고리에 따라 원하는 데이터 이용</br>
 - 하트를 눌러 좋아요 가능</br><br>
   **:two:반응형**</br>
-  ![Image](https://github.com/user-attachments/assets/3040bf03-971a-45ef-b0d8-b9fb05e074fe)
+  <img width="1278" alt="Image" src="https://github.com/user-attachments/assets/07bce4ff-a91a-4036-a87b-16ec7fdc0bb4" />
 - 스크롤시 top버튼 생성
 - top버튼 클릭시 페이지 상단 이동</br>
 - 스크롤시 카테고리바를 상단에 고정</br></br>
@@ -92,7 +92,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 2. **상품 상세 페이지**</br><br>
    **:one:상세페이지 이동 및 장바구니 담기**</br>
-   ![Image](https://github.com/user-attachments/assets/331a234b-7b89-40d5-b006-a6d5271a0426)
+   ![Image](https://github.com/user-attachments/assets/a24b067c-bf91-4812-92f2-e11d6db9caac)
 - 쿼리를 이용한 주소를 받아와 원하는 정보를 출력한 상세페이지로 이동
 - 장바구니 버튼 클릭시 장바구니 로컬스토리지에 해당 데이터 추가
 - 장바구니에 없는 새로운 상품 추가시 장바구니 아이콘의 count가 1증가
@@ -101,19 +101,19 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 - 장바구니에서 상품 클릭시 해당 상품의 상세페이지로 이동</br></br>
 
   **:two:반응형**</br>
-  ![Image](https://github.com/user-attachments/assets/d7fbd71d-8418-4d1d-861c-6fb715b1b5ab)
+   <img width="1278" alt="Image" src="https://github.com/user-attachments/assets/d7fbd71d-8418-4d1d-861c-6fb715b1b5ab" />
 - 화면 크기에 따라 요소 재배치</br>
 
 </br></br>
 
 3. **장바구니 페이지**</br>
    **:one:반응형 및 주문 박스 고정**</br>
-   ![Image](https://github.com/user-attachments/assets/f48b4872-feac-49a1-822e-8bb9602428e1)
+   <img width="1278" alt="Image" src="https://github.com/user-attachments/assets/2acfcd00-5d9b-4107-ad11-c663eaf9c8fb" />
 - 화면 크기에 따라 요소 재배치
 - 스크롤시 주문 박스가 상단에 고정<br><br>
 
   **:two:개수 수정**</br>
-  ![Image](https://github.com/user-attachments/assets/df0367fe-91e0-492d-91f9-d54fe00bf324)
+![Image](https://github.com/user-attachments/assets/eb7fa539-061c-4d9e-bf97-5b8d85c32b45)
 - +, - 버튼 클릭시 수량과 가격에 반영
 - 직접 숫자로 작성하여 수량과 가격에 반영
 - 직접 작성시 최대 개수는 55개로 제한
@@ -121,7 +121,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
   <br><br>
 
   **:three:장바구니 비우기**</br>
-  ![Image](https://github.com/user-attachments/assets/250c042f-4fc6-4c70-bfa5-524a8a06b997)
+![Image](https://github.com/user-attachments/assets/058a5dc0-f465-40e2-90f0-36096bd80d0c)
 - 상품 삭제시 해당 id를 활용하여 장바구니에서 삭제하여 가격과 수량에 반영
 - 장바구니 비우기 버튼 클릭시 모든 상품 삭제
   </br>
