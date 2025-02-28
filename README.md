@@ -75,13 +75,16 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
    ![Image](https://github.com/user-attachments/assets/0d58af47-3133-43dc-8ef1-11744aac6732)
    - 로컬스토리지에서 카테고리에 따라 원하는 데이터 이용</br>
    - 하트를 눌러 좋아요 가능</br><br>
-  **:two:반응형**</br>
+   **:two:반응형**</br>
   <img width="1278" alt="Image" src="https://github.com/user-attachments/assets/07bce4ff-a91a-4036-a87b-16ec7fdc0bb4" />
    - 스크롤시 top버튼 생성
    - top버튼 클릭시 페이지 상단 이동</br>
    - 스크롤시 카테고리바를 상단에 고정</br></br>
-  **:three:페이지네이션**</br>
+   
+   **3️⃣페이지네이션**
+     
   ![Image](https://github.com/user-attachments/assets/875b6bda-30b6-43ca-9dd5-277ac0e39d81)
+  
    - 한 페이지에 10개의 콘텐츠와 페이지네이션 4개 보여줌
    - '>' 또는 '<' 버튼 클릭시 다음 페이지네이션 그룹의 첫번째 번호로 이동
    - '>>' 버튼 클릭시 마지막 페이지네이션 그룹의 마지막 번호로 이동
