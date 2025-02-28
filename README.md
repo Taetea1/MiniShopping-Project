@@ -1,4 +1,4 @@
-## SNUGGLE shopping Web Project
+## 🛏️ SNUGGLE shopping Web Project
 
 > **목차**
 >
@@ -10,16 +10,16 @@
 
 </br>
 
-## 💻프로젝트 기술 스택 및 개발 환경
+## 🔍 프로젝트 기술 스택 및 개발 환경
 
-### 기술 스택
+### 🛠️ 기술 스택
 
 <img 
 src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" />
 <img src="https://img.shields.io/badge/css3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" />
 <img src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?&style=for-the-badge&logo=javascript&logoColor=black" />
 
-### 개발 환경
+### 💻 개발 환경
 
 <img src="https://img.shields.io/badge/visual%20studio%20code-%23007ACC.svg?&style=for-the-badge&logo=visual%20studio%20code&logoColor=white" /> <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />
 
@@ -29,7 +29,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 <br>
 
-## 소개
+## 📝 소개
 
 <img width="1278" alt="Image" src="https://github.com/user-attachments/assets/89f1d396-74e4-4e77-bb7f-338e22d69dac" />
 
@@ -37,7 +37,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 <br>
 
-## 주요 기능
+## 💎 주요 기능
 
 ### 관리자페이지
 
@@ -128,7 +128,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 </br>
 
-## 사용된 라이브러리
+## 📑사용된 라이브러리
 
 ### 라이브러리
 
