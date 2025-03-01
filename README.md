@@ -10,7 +10,7 @@
 
 </br>
 
-## 🔍 프로젝트 기술 스택 및 개발 환경
+## 🔍프로젝트 기술 스택 및 개발 환경
 
 ### 🛠️ 기술 스택
 
@@ -29,7 +29,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 <br>
 
-## 📝 소개
+## 📝소개
 
 <img width="1278" alt="Image" src="https://github.com/user-attachments/assets/89f1d396-74e4-4e77-bb7f-338e22d69dac" />
 
@@ -37,7 +37,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 <br>
 
-## 💎 주요 기능
+## 💎주요 기능
 
 ### 관리자페이지
    1. **상품 등록**</br>
