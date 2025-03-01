@@ -72,7 +72,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 1. **메인페이지**</br>
 
    **:one:카테고리 이동 및 좋아요**</br>
-   <img width="1278" alt="Image" src="https://github.com/user-attachments/assets/0d58af47-3133-43dc-8ef1-11744aac6732" /><br>
+   <img width="1278" alt="Image" src="https://github.com/user-attachments/assets/56a6bb13-c6a7-4fef-aa98-9d685b2e1606" /><br>
    - 로컬스토리지에서 카테고리에 따라 원하는 데이터 이용</br>
    - 하트를 눌러 좋아요 가능</br><br>
    
