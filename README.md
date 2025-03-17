@@ -25,10 +25,6 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 <br>
 
-## 시연 영상
-
-<br>
-
 ## 📝소개
 
 <img width="1278" alt="Image" src="https://github.com/user-attachments/assets/89f1d396-74e4-4e77-bb7f-338e22d69dac" />
